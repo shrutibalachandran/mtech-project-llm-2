@@ -808,13 +808,22 @@ def _parse_mapping_api(obj: dict, src: str) -> Optional[dict]:
         if not isinstance(msg, dict):
             continue
 
-        parts = (msg.get("content") or {}).get("parts") or []
+        content = msg.get("content") or {}
+        parts = content.get("parts") or []
 
-        text = " ".join(p.strip() for p in parts if isinstance(p, str))
-        if not text:
+        text_parts = []
+        for p in parts:
+            if isinstance(p, str):
+                t = p.strip()
+                if t:
+                    text_parts.append(t)
+
+        if not text_parts:
             continue
 
-        if "startTime" in text or text.startswith("{"):
+        text = " ".join(text_parts)
+
+        if text.startswith("{") or "startTime" in text:
             continue
 
         role = (msg.get("author") or {}).get("role", "unknown")
@@ -830,7 +839,7 @@ def _parse_mapping_api(obj: dict, src: str) -> Optional[dict]:
             "timestamp":  ts,
         })
 
-    print("messages:", len(messages))
+    print("[MSG COUNT]", conv.get("id"), len(messages))
 
     if not messages:
         return None

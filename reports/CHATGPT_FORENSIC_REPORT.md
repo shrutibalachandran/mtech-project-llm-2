@@ -1,20 +1,12 @@
 # CHATGPT Forensic Extraction Report
 
-**Generated:** 2026-05-02 07:17:07 IST  
+**Generated:** 2026-05-02 08:31:34 IST  
 **App:** CHATGPT  
-**Conversations:** 629  
+**Conversations:** 628  
 **Messages with content:** 739  
 
 ---
 
-
-## Oracles in Smart Contracts
-
-**Last updated (IST):** 2026-05-02 12:04:32 IST  
-**Conversation ID:** `7210be1e-a888-4d72-b822-8e0fe3f7a98e`
-
-*[No message content recovered — metadata only]*
----
 
 ## Oracles in Smart Contracts
 
