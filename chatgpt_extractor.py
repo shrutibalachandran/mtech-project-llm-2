@@ -799,7 +799,7 @@ def _parse_mapping_api(obj: dict, src: str) -> Optional[dict]:
 
     messages = []
 
-    for node_id, node in mapping.items():
+    for node in mapping.values():
         if not isinstance(node, dict):
             continue
         msg = node.get("message")
@@ -808,30 +808,29 @@ def _parse_mapping_api(obj: dict, src: str) -> Optional[dict]:
         if not isinstance(msg, dict):
             continue
 
-        content = msg.get("content") or {}
-        parts = content.get("parts") or []
+        parts = (msg.get("content") or {}).get("parts") or []
 
-        if not parts:
-            continue
-
-        text = " ".join([p for p in parts if isinstance(p, str)]).strip()
-        if not text:
-            text = _flatten_parts(parts).strip()
-
+        text = " ".join(p.strip() for p in parts if isinstance(p, str))
         if not text:
             continue
 
-        author = msg.get("author", {})
-        role = (author.get("role") or msg.get("role") or "unknown").lower()
-        ts = float(msg.get("create_time") or msg.get("update_time") or ut)
-        mid = msg.get("id", node_id)
+        if "startTime" in text or text.startswith("{"):
+            continue
+
+        role = (msg.get("author") or {}).get("role", "unknown")
+        if isinstance(role, str):
+            role = role.lower()
+        ts_raw = msg.get("create_time")
+        ts = float(ts_raw) if ts_raw is not None else float(msg.get("update_time") or ut)
 
         messages.append({
-            "message_id": mid,
+            "message_id": msg.get("id"),
             "role":       role,
             "snippet":    text.strip()[:3000],
             "timestamp":  ts,
         })
+
+    print("messages:", len(messages))
 
     if not messages:
         return None
