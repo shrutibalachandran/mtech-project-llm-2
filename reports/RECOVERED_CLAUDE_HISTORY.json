@@ -1,0 +1,360 @@
+{
+  "_forensic_notes": "DIGITAL FORENSIC INTEGRITY STATEMENT: This file contains ONLY data physically recovered from binary artifacts. No AI text generation or falsification used.",
+  "items": [
+    {
+      "conversation_id": "0a5b59b4-fa0e-4e1b-9b42-27ab972b2c8c",
+      "current_node_id": "019cece5-b975-747a-a6a3-4c7892974f86",
+      "title": "Extracting data from LLMs",
+      "model": "claude-sonnet-4-6",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1773501016.458216,
+      "payload": {
+        "kind": "message",
+        "message_id": "019cece5-b975-747a-a6a3-4c7892974f86",
+        "snippet": "I can help you understand ways to extract data from LLMs! Here's an overview of the main approaches:\n\n## What does \"extracting LLM data\" mean?\n\nIt can mean a few different things depending on your goal:\n\n---\n\n### 1. **Extracting structured data from text using an LLM**\nUse the LLM as a tool to parse/extract information from unstructured text.\n\n```python\nprompt = \"\"\"\nExtract the following fields from the text below as JSON:\n- name\n- date\n- amount\n\nText: \"John paid $250 on March 10th for the service.\"\n\"\"\"\n# LLM output: {\"name\": \"John\", \"date\": \"March 10th\", \"amount\": \"$250\"}\n```\n\n**Use cases:** Invoice parsing, form filling, document analysis, NER (Named Entity Recognition).\n\n---\n\n### 2. **Extracting training data / knowledge from an LLM**\nProbing what an LLM \"knows\" through prompting techniques:\n\n- **Direct questioning** – Ask the model factual questions\n- **Few-shot prompting** – Guide the model to produce structured outputs\n- **Chain-of-thought** – Extract reasoning steps along with answers\n- **Membership inference** – Test whether specific data was in training data\n\n---\n\n### 3. **Extracting embeddings / representations**\nIf you have API access to embedding models:\n\n```python\nfrom openai import OpenAI\nclient = OpenAI()\n\nresponse = client.embeddings.create(\n    input=\"Your text here\",\n    model=\"text-embedding-3-small\"\n)\nvector = response.data[0].embedding  # High-dimensional vector\n```\n\n**Use cases:** Semantic search, clustering, similarity detection.\n\n---\n\n### 4. **Model extraction / distillation (research area)**\nTraining a smaller model to mimic a larger one by:\n- Querying the target model many times\n- Using outputs as training labels for your own model\n\n---\n\n### 5. **Extracting outputs via API**\nSimply calling an LLM API and collecting responses at scale:\n\n```python\nimport anthropic\n\nclient = anthropic.Anthropic()\nresults = []\n\nfor query in my_queries:\n    response = client.messages.create(\n        model=\"claude-sonnet-4-20250514\",\n        max_tokens=1024,\n        messages=[{\"role\": \"user\", \"content\": query}]\n    )\n    results.append(response.content[0].text)\n```\n\n---\n\nWhich of these directions are you most interested in? Knowing your specific goal will help me give you more targeted guidance!",
+        "role": "assistant"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "0a5b59b4-fa0e-4e1b-9b42-27ab972b2c8c",
+      "current_node_id": "019cece5-b975-747a-a6a3-4c7892974f86",
+      "title": "Extracting data from LLMs",
+      "model": "claude-sonnet-4-6",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1773501004.349869,
+      "payload": {
+        "kind": "message",
+        "message_id": "019cece5-b972-72d0-b9d6-830bc88e5ae4",
+        "snippet": "Hi i am thinking about LLM how to extract llm data",
+        "role": "human"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "4619c6f8-5931-4745-a171-5550bb00bb54",
+      "current_node_id": "019cd1fb-6f9d-7150-a41e-7afa3802fa86",
+      "title": "What is generative AI",
+      "model": "claude-sonnet-4-6",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1773049451.359292,
+      "payload": {
+        "kind": "message",
+        "message_id": "019cd1fb-6f9d-7150-a41e-7afa3802fa86",
+        "snippet": "Generative AI is a type of artificial intelligence that can **create new content** — text, images, audio, video, code, and more — by learning patterns from large amounts of training data.\n\n## How it works\n\nInstead of just analyzing or classifying existing data, generative AI learns the underlying structure of data and uses that to produce novel outputs. It's powered by large models (like large language models, or LLMs) trained on vast datasets.\n\n## What it can generate\n\n- **Text** – articles, essays, code, poetry, conversations (e.g., ChatGPT, Claude)\n- **Images** – realistic photos, artwork, illustrations (e.g., DALL·E, Midjourney)\n- **Audio** – music, voiceovers, sound effects\n- **Video** – animations, synthetic video clips\n- **Code** – functional programs and scripts\n\n## Key techniques behind it\n\n- **Transformers** – the neural network architecture powering most modern LLMs\n- **Diffusion models** – used for image/video generation\n- **GANs (Generative Adversarial Networks)** – an older technique where two networks compete to produce realistic outputs\n\n## Common use cases\n\n- Writing assistance and summarization\n- Customer support chatbots\n- Code generation and debugging\n- Creative tools (art, music, design)\n- Drug discovery and scientific research\n- Personalized content and recommendations\n\n## Limitations to keep in mind\n\n- Can produce **\"hallucinations\"** (plausible-sounding but incorrect information)\n- May reflect **biases** present in training data\n- Raises **copyright and ethical questions** about generated content\n- Outputs require **human review** for high-stakes use cases\n\nIn short, generative AI doesn't just find answers — it *creates* them, making it one of the most transformative technologies in recent history.",
+        "role": "assistant"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "4619c6f8-5931-4745-a171-5550bb00bb54",
+      "current_node_id": "019cd1fb-6f9d-7150-a41e-7afa3802fa86",
+      "title": "What is generative AI",
+      "model": "claude-sonnet-4-6",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1773049442.894895,
+      "payload": {
+        "kind": "message",
+        "message_id": "019cd1fb-6f9c-7bde-a231-0d93f53f458b",
+        "snippet": "what is generative ai",
+        "role": "human"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "b880dca5-c2a6-417b-bb2c-9e55fb55cc9d",
+      "current_node_id": "019cd1f8-d44a-753a-944f-7652ec8edc15",
+      "title": "Deadliest disease in the world",
+      "model": "claude-sonnet-4-6",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1773049285.545773,
+      "payload": {
+        "kind": "message",
+        "message_id": "019cd1f8-d44a-753a-944f-7652ec8edaa0",
+        "snippet": "what is the deadliest disease in the world",
+        "role": "human"
+      },
+      "source_file": "forensic_reconstruction"
+    },
+    {
+      "conversation_id": "b880dca5-c2a6-417b-bb2c-9e55fb55cc9d",
+      "current_node_id": "019cd1f8-d44a-753a-944f-7652ec8edc15",
+      "title": "Deadliest disease in the world",
+      "model": "claude-sonnet-4-6",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1773049285.545773,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] updated=2026-03-07T10:21:25.545773Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "29af3a99-64e0-4e9d-9bc2-4004eb2d19fa",
+      "current_node_id": "019c4c5f-0e1b-7032-9ca9-f49e01274f84",
+      "title": "Bat and ball definitions",
+      "model": "claude-haiku-4-5-20251001",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770807831.554122,
+      "payload": {
+        "kind": "message",
+        "message_id": "019c4c5f-0e1b-7032-9ca9-f49e012aaa00",
+        "snippet": "what is bat and ball",
+        "role": "human"
+      },
+      "source_file": "forensic_reconstruction"
+    },
+    {
+      "conversation_id": "29af3a99-64e0-4e9d-9bc2-4004eb2d19fa",
+      "current_node_id": "019c4c5f-0e1b-7032-9ca9-f49e01274f84",
+      "title": "Bat and ball definitions",
+      "model": "claude-haiku-4-5-20251001",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770807831.554122,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] updated=2026-02-04T18:23:51.554122Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "0caea636-8de9-4bef-b431-3e19d7be1200",
+      "current_node_id": "019c46c3-b0d0-70da-8677-61863df3c77d",
+      "title": "helloo",
+      "model": "claude-sonnet-4-5-20250929",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770713762.529994,
+      "payload": {
+        "kind": "message",
+        "message_id": "019c46c3-b0d0-70da-8677-61863df3c77d",
+        "snippet": "Hello! How's it going? What can I help you with today?",
+        "role": "assistant"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "0caea636-8de9-4bef-b431-3e19d7be1200",
+      "current_node_id": "019c46c3-b0d0-70da-8677-61863df3c77d",
+      "title": "helloo",
+      "model": "claude-sonnet-4-5-20250929",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770713762.529994,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2026-02-10T08:55:55.388109Z updated=2026-02-10T08:56:02.529994Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "0caea636-8de9-4bef-b431-3e19d7be1200",
+      "current_node_id": "019c46c3-b0d0-70da-8677-61863df3c77d",
+      "title": "helloo",
+      "model": "claude-sonnet-4-5-20250929",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770713755.961548,
+      "payload": {
+        "kind": "message",
+        "message_id": "019c46c3-b0d0-70da-8677-6185af218cff",
+        "snippet": "helloo",
+        "role": "human"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "54fd3a6b-cf9f-4984-83b7-6d034dc6d0af",
+      "current_node_id": "019c40f4-b81f-77bb-acb1-d5797acc9682",
+      "title": "Cyber forensics explained",
+      "model": "claude-sonnet-4-5-20250929",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770616315.396327,
+      "payload": {
+        "kind": "message",
+        "message_id": "019c40f4-b81f-77bb-acb1-d5797acc9682",
+        "snippet": "Cyber forensics, also called digital forensics or computer forensics, is the practice of collecting, analyzing, and preserving digital evidence from computers, networks, mobile devices, and other electronic systems—typically for use in legal proceedings or investigations.\n\nThe field involves recovering data that might have been deleted, encrypted, or hidden, and establishing what happened on a digital system. This could mean tracing how a hacker broke into a network, recovering files from a damaged hard drive, or piecing together someone's digital activities from their devices.\n\nCyber forensics experts work on cases ranging from cybercrime (like hacking or data breaches) to traditional crimes that leave digital footprints (like fraud or theft). They follow strict procedures to ensure evidence remains admissible in court—creating exact copies of data, maintaining a clear chain of custody, and documenting every step of their investigation.\n\nThe work requires both technical skills (understanding file systems, operating systems, encryption, and network protocols) and investigative thinking to interpret what the digital evidence reveals about real-world events. Common tools include specialized software for data recovery, analysis programs that can parse through massive amounts of information, and hardware write-blockers that prevent accidental modification of evidence.\n\nIs there a particular aspect of cyber forensics you're curious about—like the investigation process, career paths, or how it's used in specific types of cases?",
+        "role": "assistant"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "54fd3a6b-cf9f-4984-83b7-6d034dc6d0af",
+      "current_node_id": "019c40f4-b81f-77bb-acb1-d5797acc9682",
+      "title": "Cyber forensics explained",
+      "model": "claude-sonnet-4-5-20250929",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770616315.396327,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2026-02-09T05:51:42.979190Z updated=2026-02-09T05:51:55.396327Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "54fd3a6b-cf9f-4984-83b7-6d034dc6d0af",
+      "current_node_id": "019c40f4-b81f-77bb-acb1-d5797acc9682",
+      "title": "Cyber forensics explained",
+      "model": "claude-sonnet-4-5-20250929",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1770616305.757831,
+      "payload": {
+        "kind": "message",
+        "message_id": "019c40f4-b81f-77bb-acb1-d57812ab0411",
+        "snippet": "what is cyber forensics?",
+        "role": "human"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "c8155276-ef61-4b55-8312-2ff22062911f",
+      "current_node_id": "be8947bb-690f-4a28-9208-8877b57814e2",
+      "title": "React Tabs Component Design",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749808937.771711,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-12T08:26:16.801768Z updated=2025-06-13T10:02:17.771711Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "fb645f7e-693c-41d7-a87e-b8b547c9fae4",
+      "current_node_id": "1477aa0a-ce3c-40cc-9b8b-c80ac33c4d77",
+      "title": "Selected Items Counter UI Component",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749709371.432631,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-12T06:22:07.284091Z updated=2025-06-12T06:22:51.432631Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "2f83ac98-50d9-4bce-ad69-e5d34b67a17f",
+      "current_node_id": "a916c3c3-b883-4cf5-9886-a0fc02d73858",
+      "title": "React Component Code Review",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749549543.685633,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-10T09:35:35.403340Z updated=2025-06-10T09:59:03.685633Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "e6a17efc-edb7-4fe5-bbf6-e55430b3ddab",
+      "current_node_id": "11e9829d-83ed-4b79-b024-2576a91a2d21",
+      "title": "Combobox Scrolling Problem",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749543215.637587,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-10T07:08:48.442594Z updated=2025-06-10T08:13:35.637587Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "41b59899-7cdd-438c-bbd3-14515bbb7734",
+      "current_node_id": "029e87cc-fd9e-4c60-811b-8ef6c4a7b18a",
+      "title": "Dropdown Input Value Selection",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749529582.754915,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-10T03:46:54.909383Z updated=2025-06-10T04:26:22.754915Z"
+      },
+      "source_file": "data_1"
+    },
+    {
+      "conversation_id": "e9343e34-673b-49c6-b36f-e4999a380535",
+      "current_node_id": "6720520d-2dc7-4135-8fbd-1aa90d2992ac",
+      "title": "React Combobox Search Component Error",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749485151.02531,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-09T15:50:34.563110Z updated=2025-06-09T16:05:51.025310Z"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "2a0bc953-e187-4c59-88d8-ad25dfd29f64",
+      "current_node_id": "fea47469-1b02-4f24-831c-e4d5ee524ec3",
+      "title": "Figma Design Code Alignment",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749460196.31658,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-09T09:08:17.609736Z updated=2025-06-09T09:09:56.316580Z"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "c12a43df-afab-4844-bab1-909095268353",
+      "current_node_id": "eb677f8e-507d-4ef2-8d3a-748412049ca2",
+      "title": "Design logging systems",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749460067.004648,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-09T09:07:36.665973Z updated=2025-06-09T09:07:47.004648Z"
+      },
+      "source_file": "data_2"
+    },
+    {
+      "conversation_id": "a37e5d93-7370-4ca7-8620-ba9bc23b60d6",
+      "current_node_id": "",
+      "title": "shruthib2001@gmail.com's Organization",
+      "model": "",
+      "is_archived": false,
+      "is_starred": false,
+      "update_time": 1749460030.997811,
+      "payload": {
+        "kind": "message",
+        "message_id": "",
+        "snippet": "[No cached content] created=2025-06-09T09:07:10.997811Z updated=2025-06-09T09:07:10.997811Z"
+      },
+      "source_file": "data_1"
+    }
+  ]
+}

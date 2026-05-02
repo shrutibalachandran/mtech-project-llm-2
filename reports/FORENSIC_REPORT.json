@@ -1,0 +1,11 @@
+{
+  "analysis_timestamp": "2026-03-18 11:40:01",
+  "files_scanned": 883,
+  "wal_files": 3,
+  "ldb_files": 8,
+  "cache_files": 872,
+  "chatgpt_messages": 654,
+  "claude_messages": 0,
+  "deleted_fragments": 8002,
+  "meaningful_fragments": 8002
+}
