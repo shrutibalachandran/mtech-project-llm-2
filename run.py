@@ -123,6 +123,64 @@ def _trim_glued_forensic_snippet(s: str) -> str:
     return s.strip()
 
 
+def _merge_chatgpt_convs_by_uuid(convs: dict, skip_titles: set) -> dict:
+    """One row per conversation UUID; merges duplicate keys that share the same id."""
+    by_uuid: dict = {}
+    rest = {}
+    for _key, c in convs.items():
+        cid = (c.get("cid") or "").strip()
+        if not cid:
+            rest[_key] = c
+            continue
+        cl = cid.lower()
+        if cl not in by_uuid:
+            by_uuid[cl] = {
+                "cid": cid,
+                "title": c.get("title") or "",
+                "ts": float(c.get("ts") or 0),
+                "is_archived": bool(c.get("is_archived")),
+                "is_starred": bool(c.get("is_starred")),
+                "msgs": list(c.get("msgs") or []),
+            }
+            continue
+        tgt = by_uuid[cl]
+        seen = {m["snippet"][:100] for m in tgt["msgs"]}
+        for m in (c.get("msgs") or []):
+            sk = m["snippet"][:100]
+            if sk not in seen:
+                tgt["msgs"].append(m)
+                seen.add(sk)
+        ot = c.get("title") or ""
+        if ot and ot not in skip_titles:
+            if not tgt["title"] or tgt["title"] in skip_titles:
+                tgt["title"] = ot
+        tgt["ts"] = max(tgt["ts"], float(c.get("ts") or 0))
+        tgt["is_archived"] = tgt["is_archived"] or bool(c.get("is_archived"))
+        tgt["is_starred"] = tgt["is_starred"] or bool(c.get("is_starred"))
+    out = dict(rest)
+    for _cl, c in by_uuid.items():
+        out[c["cid"]] = c
+    return out
+
+
+def _chatgpt_report_out_items(out_items: list) -> list:
+    """Omit metadata-only stubs; drop chats with no recoverable message rows."""
+    by_cid: dict = {}
+    for x in out_items:
+        cid = x.get("conversation_id") or ""
+        by_cid.setdefault(cid, []).append(x)
+    out = []
+    for _cid, items in by_cid.items():
+        real = [
+            x for x in items
+            if not (x.get("payload") or {}).get("snippet", "").startswith(
+                "[No content")
+        ]
+        if real:
+            out.extend(real)
+    return out
+
+
 def is_real(s: str) -> bool:
     s = s.strip()
     if not s or len(s) < 2:
@@ -428,6 +486,8 @@ def run_chatgpt(paths: dict):
     else:
         print("      → No WAL log files found to carve")
 
+    convs = _merge_chatgpt_convs_by_uuid(convs, SKIP)
+
     # ── Build output ────────────────────────────────────────────
     print("      Building report …")
     clist = sorted(convs.values(), key=lambda c: float(
@@ -458,8 +518,9 @@ def run_chatgpt(paths: dict):
                                 "snippet": m["snippet"], "role": m["role"]}
                 })
 
-    chatgpt_cids = sorted({x["conversation_id"] for x in out_items})
-    _write_report("CHATGPT", chatgpt_cids, out_items)
+    out_report = _chatgpt_report_out_items(out_items)
+    chatgpt_cids = sorted({x["conversation_id"] for x in out_report})
+    _write_report("CHATGPT", chatgpt_cids, out_report)
 
 
 def _scan_claude_idb_blob(paths: dict) -> list:
@@ -881,15 +942,34 @@ def _write_report(app: str, clist, out_items: list, is_claude: bool = False):
         return max((float(x.get("update_time", 0)) for x in items_list), default=0)
 
     for cid, citems in sorted(by_conv.items(), key=lambda kv: conv_ts(kv[1]), reverse=True):
+        msgs_sorted = sorted(
+            citems, key=lambda x: float(x.get("update_time", 0)))
+        real_msgs = [
+            x for x in msgs_sorted
+            if not x["payload"]["snippet"].startswith("[No content")
+        ]
+        if app == "CHATGPT":
+            if not real_msgs:
+                continue
+            title = real_msgs[0].get("title", "(untitled)")
+            ts = conv_ts(citems)
+            lines.append(f"\n## {title}\n\n")
+            lines.append(f"**Last updated (IST):** {ts_ist(ts)}  \n")
+            lines.append(f"**Conversation ID:** `{cid}`\n\n")
+            for item in sorted(real_msgs, key=lambda x: float(x.get("update_time", 0))):
+                snip = item["payload"]["snippet"]
+                role = (item["payload"].get("role") or "unknown").upper()
+                mt = ts_ist(float(item.get("update_time", 0)))
+                lines.append(f"**[{mt}] {role}:**\n\n{snip}\n\n")
+            lines.append("---\n")
+            continue
+
         title = citems[0].get("title", "(untitled)")
         ts = conv_ts(citems)
         lines.append(f"\n## {title}\n\n")
         lines.append(f"**Last updated (IST):** {ts_ist(ts)}  \n")
         lines.append(f"**Conversation ID:** `{cid}`\n\n")
-        msgs_sorted = sorted(
-            citems, key=lambda x: float(x.get("update_time", 0)))
-        has_real = any(not x["payload"]["snippet"].startswith(
-            "[No content") for x in msgs_sorted)
+        has_real = bool(real_msgs)
         if not has_real:
             lines.append("*[No message content recovered — metadata only]*\n")
         else:

@@ -1,8 +1,8 @@
 # CHATGPT Forensic Extraction Report
 
-**Generated:** 2026-05-02 08:31:34 IST  
+**Generated:** 2026-05-04 11:24:07 IST  
 **App:** CHATGPT  
-**Conversations:** 628  
+**Conversations:** 587  
 **Messages with content:** 739  
 
 ---
@@ -1777,14 +1777,6 @@ before ending its mission in 2017.\n\nIf you want, I can:\n- Compare **Cassini v
 
 ---
 
-## Snow Moon Meaning
-
-**Last updated (IST):** 2026-03-19 11:57:34 IST  
-**Conversation ID:** `697f7c07-e68c-8323-b843-f048193b7ab1`
-
-*[No message content recovered — metadata only]*
----
-
 ## Draw Lord Shiva
 
 **Last updated (IST):** 2026-03-19 11:57:34 IST  
@@ -1805,14 +1797,6 @@ nt, I can also tell you:\n- When the next Snow Moon occurs\n- Snow Moon vs Blood
 
 ...t mind, tell me:\n.... Is your hair **wavy, curly, or very tight curly**?  \n.... Is it mostly **dry, oily, or normal**?\n\nI can suggest which one will suit you personally.
 
----
-
-## Distributed Systems Topic
-
-**Last updated (IST):** 2026-03-19 11:57:34 IST  
-**Conversation ID:** `698223a0-2d18-8322-8f58-6799c6acf4a2`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Distributed Systems Topic
@@ -1846,30 +1830,6 @@ e ...donkey-level... programs ....**\n- **Programs using functions**\n- **Exam-i
 
 . Get ... Element ... By ... ID...**\n\n---\n\nIf you want:\n- .... 5 interview questions on this\n- .... Practice programs\n- ... One-night revision sheet\n\nJust tell me ....
 
----
-
-## Snow Moon Meaning
-
-**Last updated (IST):** 2026-03-19 11:57:27 IST  
-**Conversation ID:** `69747fb6-1908-8322-8d49-787f160405c2`
-
-*[No message content recovered — metadata only]*
----
-
-## Snow Moon Meaning
-
-**Last updated (IST):** 2026-03-19 11:57:27 IST  
-**Conversation ID:** `69782b97-ada8-8321-8ae0-02fd6f628660`
-
-*[No message content recovered — metadata only]*
----
-
-## Forensic Test Overview
-
-**Last updated (IST):** 2026-03-19 11:57:27 IST  
-**Conversation ID:** `1605f9ab-8033-4a71-a5b2-116a59bd2d75`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## PEAS description part picking
@@ -6941,14 +6901,6 @@ print("Area =", area)
 
 If you want a **shorter version using `from geometry.rectangle import rectangle_calculation`**, tell me 👍
 
----
-
-## Bibliography extraction
-
-**Last updated (IST):** 2025-12-08 05:05:16 IST  
-**Conversation ID:** `521355cf-0334-4fb7-95f1-2141e40f9262`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## DOC-20250715-WA0012..pdf
@@ -17696,14 +17648,6 @@ Do you want me to do that?
 ## HTML structure example
 
 **Last updated (IST):** 2025-11-18 04:05:53 IST  
-**Conversation ID:** `2170152a-18fb-463a-9af4-ad938a87e048`
-
-*[No message content recovered — metadata only]*
----
-
-## HTML structure example
-
-**Last updated (IST):** 2025-11-18 04:05:53 IST  
 **Conversation ID:** `2bdf89df-9c3e-4da9-ac5f-1225956b1a94`
 
 **[2025-11-18 04:05:53 IST] ASSISTANT:**
@@ -18525,14 +18469,6 @@ If you want, I can also make a **small diagram showing explode vs implode** for 
 ## HTML registration page
 
 **Last updated (IST):** 2025-11-17 20:05:59 IST  
-**Conversation ID:** `069ce005-27a2-4fb4-bc49-ebc25684a383`
-
-*[No message content recovered — metadata only]*
----
-
-## HTML registration page
-
-**Last updated (IST):** 2025-11-17 20:05:59 IST  
 **Conversation ID:** `751c4798-9473-4300-9ace-451137acb18b`
 
 **[2025-11-17 20:05:59 IST] ASSISTANT:**
@@ -18890,14 +18826,6 @@ If you want, I can make a **small JavaScript example showing both `parse` and `s
 
 Do you want me to do that?
 
----
-
-## CSS styling example
-
-**Last updated (IST):** 2025-11-17 10:04:14 IST  
-**Conversation ID:** `e2f2dc3a-d277-4cf8-badc-d2c594d2959b`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## CSS styling example
@@ -19758,14 +19686,6 @@ very easy program
 ## Radio buttons vs checkboxes
 
 **Last updated (IST):** 2025-11-16 21:42:03 IST  
-**Conversation ID:** `0644c3d4-dd1f-477a-99fb-3e4c7323e454`
-
-*[No message content recovered — metadata only]*
----
-
-## Radio buttons vs checkboxes
-
-**Last updated (IST):** 2025-11-16 21:42:03 IST  
 **Conversation ID:** `0e722ccb-9fac-4458-85e8-6c20dce9d6d7`
 
 **[2025-11-16 21:42:03 IST] ASSISTANT:**
@@ -20048,14 +19968,6 @@ So we must use **rowspan** for the tall left cell.
 
 If you want, I can generate the **exact border thickness** or **add your own text** inside the cells.
 
----
-
-## Radio buttons vs checkboxes
-
-**Last updated (IST):** 2025-11-16 21:42:03 IST  
-**Conversation ID:** `6a292c45-6752-49a7-81e0-a9be454289cf`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Radio buttons vs checkboxes
@@ -20406,14 +20318,6 @@ If you want, I can also add borders matching exactly like the printed image.
 ## PHP MySQL connection script
 
 **Last updated (IST):** 2025-11-16 16:42:37 IST  
-**Conversation ID:** `52b4d8c2-362e-468b-b1cd-3bf1857716aa`
-
-*[No message content recovered — metadata only]*
----
-
-## PHP MySQL connection script
-
-**Last updated (IST):** 2025-11-16 16:42:37 IST  
 **Conversation ID:** `dad15605-9e72-450e-8082-5a0095890c0a`
 
 **[2025-11-16 16:42:37 IST] ASSISTANT:**
@@ -20667,14 +20571,6 @@ if ($conn) {
 
 If you want, I can also give a short 3-mark answer version.
 
----
-
-## Meta charset UTF-8 explanation
-
-**Last updated (IST):** 2025-11-15 16:00:55 IST  
-**Conversation ID:** `ce8589d0-3ae4-4736-aac3-d9ad5740af0f`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## PEAS description part picking
@@ -32277,14 +32173,6 @@ mple**.\n\n---\n\nIf you want, I can:\n... Give **sample GD answers**  \n... Do 
 ## Soft Computing Exam Guide
 
 **Last updated (IST):** Unknown  
-**Conversation ID:** `7fe28115-0a99-4888-a496-6bbbc210b08b`
-
-*[No message content recovered — metadata only]*
----
-
-## Soft Computing Exam Guide
-
-**Last updated (IST):** Unknown  
 **Conversation ID:** `696c9f55-c698-8321-b1f3-90463b16a523`
 
 **[Unknown] ASSISTANT:**
@@ -32348,14 +32236,6 @@ ng, and facilitates modular program design. The relocation process is handled by
 
 ---
 
-## Results Discussion Conclusion Explanation
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `694ce174-f998-8324-8cf5-bc5543884efa`
-
-*[No message content recovered — metadata only]*
----
-
 ## Restrict feature Instagram
 
 **Last updated (IST):** Unknown  
@@ -32398,38 +32278,6 @@ s (e.g., building stronger homes or flood barriers).  \n- Reduces the overall im
 
 Reduces the overall impact of disasters.  \n\nWould you like examples or details about tools used in risk assessments?
 
----
-
-## Radio buttons vs checkboxes
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `0546e3f1-4381-4060-ba61-0eb74ecc4599`
-
-*[No message content recovered — metadata only]*
----
-
-## Radio buttons vs checkboxes
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `2414a06a-bc11-4e42-9915-e8351f1259ba`
-
-*[No message content recovered — metadata only]*
----
-
-## Radio buttons vs checkboxes
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `691850a8-31c8-8321-8243-57dec3467025`
-
-*[No message content recovered — metadata only]*
----
-
-## Radio buttons vs checkboxes
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `6919412d-f620-8322-a320-6b0a88f35e39`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Radio buttons vs checkboxes
@@ -32540,14 +32388,6 @@ en rules to define actions based on conditions. | IF dirty THEN clean |\n\n---\n
 
 ting.  \n- The initial solution obtained may be **far from optimal**.\n\n---\n\nWould you like me to show how to **calculate the transportation cost** for this example as well?
 
----
-
-## PEAS description part picking
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `6916300d-fc6c-8323-b5a2-ddf99ef311c5`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## PEAS description part picking
@@ -32702,38 +32542,6 @@ roupby().idxmax()` alone. Let me know if you'd like to include additional info l
 
 t were lost or corrupted. The choice between the two protocols depends on the specific requirements of the communication system, including error rates and resource constraints.
 
----
-
-## Network Security vs Forensics
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `699be37e-baa8-8322-b7e4-37b62b01db30`
-
-*[No message content recovered — metadata only]*
----
-
-## Network Security vs Forensics
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `69a8619b-9050-8321-8f40-0f2b77c13bd5`
-
-*[No message content recovered — metadata only]*
----
-
-## Network Security vs Forensics
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `69aa779b-6eb8-8323-8e5f-04950943818f`
-
-*[No message content recovered — metadata only]*
----
-
-## Network Security vs Forensics
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `69ae96c1-dab4-8322-8ff0-93bc041afc42`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Network Congestion Overview
@@ -33267,14 +33075,6 @@ local evidence** (like specific file paths, cache locations, registry entries, e
 ## Grammar Correction Explanation
 
 **Last updated (IST):** Unknown  
-**Conversation ID:** `698819aa-5578-8322-a148-2c3e772d525f`
-
-*[No message content recovered — metadata only]*
----
-
-## Grammar Correction Explanation
-
-**Last updated (IST):** Unknown  
 **Conversation ID:** `698ab596-09e4-8324-a95e-59734c54b680`
 
 **[Unknown] ASSISTANT:**
@@ -33292,22 +33092,6 @@ want drama.\n- If someone is leaving negative comments.\n- If you want peace wit
 
 tributed Algorithms*  \n.... *Global State & Termination Detection*  \n\nIf you want, I can properly solve that exact problem step-by-step the way it would be written in exams.
 
----
-
-## Grammar Correction Explanation
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `6993a349-ffb0-8324-9670-324e06a9c643`
-
-*[No message content recovered — metadata only]*
----
-
-## Grammar Correction Explanation
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `84e36705-9824-439a-b9d6-ec798872a517`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Generative AI Summary Request
@@ -33706,22 +33490,6 @@ reactive)** to **intelligent (learning)**,  \n> improving their ability to sense
 
 ---
 
-## Distributed Systems Topic
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `69839453-76cc-8322-b294-ca0f8a87afd7`
-
-*[No message content recovered — metadata only]*
----
-
-## Distributed Systems Topic
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `698aa211-da78-8320-9624-da443243d1aa`
-
-*[No message content recovered — metadata only]*
----
-
 ## Distance Converter Class
 
 **Last updated (IST):** Unknown  
@@ -33879,14 +33647,6 @@ ations\n\nIf you meant something else (like *What is 5 in binary?*, or *What doe
 ## Create pie chart
 
 **Last updated (IST):** Unknown  
-**Conversation ID:** `692ae0af-585c-8321-83be-52863a85c403`
-
-*[No message content recovered — metadata only]*
----
-
-## Create pie chart
-
-**Last updated (IST):** Unknown  
 **Conversation ID:** `692bf5df-10a4-8320-accd-62b95f629654`
 
 **[Unknown] ASSISTANT:**
@@ -33975,14 +33735,6 @@ ot | MAX | Choose maximum | A=3 |\n\n---\n\nWould you like me to draw a small **
 ## Confined space safety precautions
 
 **Last updated (IST):** Unknown  
-**Conversation ID:** `64830de8-6cd9-4960-93d4-f459d342ef72`
-
-*[No message content recovered — metadata only]*
----
-
-## Confined space safety precautions
-
-**Last updated (IST):** Unknown  
 **Conversation ID:** `8737d54f-a9d5-4d84-ad49-96541a6d3eae`
 
 **[Unknown] ASSISTANT:**
@@ -34000,14 +33752,6 @@ ot | MAX | Choose maximum | A=3 |\n\n---\n\nWould you like me to draw a small **
 
 e entering a confined space"]},"status":"finished_successfully","end_turn":null,"weight":1.0,"metadata":{"selected_github_repos":[],"serialization_metadata":{"custom_symbol_offsets":[]},"request_id":"c3f8126b-22ac-4c17-9f3f-571d72bf9575","message_source":null,"turn_exchange_id":"f7db94bd-f3bd-4d1f-a
 
----
-
-## Confined space safety precautions
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `f7db94bd-f3bd-4d1f-a7f8-5a0ffe0a179d`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Computer Graphics Concepts
@@ -34098,14 +33842,6 @@ If you want, I can make a **small JavaScript example showing both `parse` and `s
 
 ---
 
-## CSS styling example
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `691a31b6-4fe0-8320-bdab-4025f02b53bc`
-
-*[No message content recovered — metadata only]*
----
-
 ## CSP tree construction steps
 
 **Last updated (IST):** Unknown  
@@ -34159,22 +33895,6 @@ tisfaction           | TSP, Knapsack, Job Scheduling, Integer Programming |\n\n-
 
 roduction rule found in the parsing table. If no rule exists, it signals a **syntax error** and triggers recovery.\n\nLet me know if you want an example to visualize it better!
 
----
-
-## Bibliography extraction
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `4af1813e-c809-424a-ab17-417bdec239ac`
-
-*[No message content recovered — metadata only]*
----
-
-## Bibliography extraction
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `698a58dd-c010-8324-a167-9caba679935a`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Bibliography extraction
@@ -34257,28 +33977,12 @@ tion** problems by using bounds to eliminate suboptimal solutions early.\n\nWoul
 ## Assignment problem solution
 
 **Last updated (IST):** Unknown  
-**Conversation ID:** `b41cb128-99d9-4f16-971d-d0071e0cc6d6`
-
-*[No message content recovered — metadata only]*
----
-
-## Assignment problem solution
-
-**Last updated (IST):** Unknown  
 **Conversation ID:** `2dca51cb-83c1-4ae9-abb4-d94bf1e22ea8`
 
 **[Unknown] ASSISTANT:**
 
 a table is given fo this qn"]},"status":"finished_successfully","end_turn":null,"weight":1.0,"metadata":{"selected_github_repos":[],"serialization_metadata":{"custom_symbol_offsets":[]},"request_id":"2dca51cb-83c1-4ae9-abb4-d94bf1e22ea8","message_source":null,"turn_exchange_id":"9532f7c0-bff2-4a19-8
 
----
-
-## Assignment problem solution
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `9532f7c0-bff2-4a19-8b39-d7ea59b395a3`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## Assignment problem solution
@@ -34438,28 +34142,12 @@ de the paper in section VIII by highlighting some\n\nof the future research scop
 ## A computational efficient optimization of flow shop ...
 
 **Last updated (IST):** Unknown  
-**Conversation ID:** `131e6476-31ca-4cf0-90cf-12ba7f8016e3`
-
-*[No message content recovered — metadata only]*
----
-
-## A computational efficient optimization of flow shop ...
-
-**Last updated (IST):** Unknown  
 **Conversation ID:** `3c08ba11-1fb3-4cf9-a378-e6e4b0f47e94`
 
 **[Unknown] ASSISTANT:**
 
 a table is given fo this qn"]},"status":"finished_successfully","end_turn":null,"weight":1.0,"metadata":{"selected_github_repos":[],"serialization_metadata":{"custom_symbol_offsets":[]},"request_id":"3c08ba11-1fb3-4cf9-a378-e6e4b0f47e94","message_source":null,"turn_exchange_id":"4f76a7c2-9d4c-47ee-8
 
----
-
-## A computational efficient optimization of flow shop ...
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `4f76a7c2-9d4c-47ee-803d-7b30a088d4ac`
-
-*[No message content recovered — metadata only]*
 ---
 
 ## A computational efficient optimization of flow shop ...
@@ -34581,20 +34269,4 @@ D\n\n---\n\nWould you like a **diagram** showing how an object is projected in o
 
 me and resources, I...ll explain the methods and share useful algorithms.","I'll avoid requesting the table, but offer to help further with it if needed."],"finished":true}],"source_analysis_msg_id":"d0db56bf-8faf-41cc-93f7-c9cc52281898"},"status":"finished_successfully","end_turn":false,"weight":1.
 
----
-
-## Aptitude Tests in Hiring
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** `69b7a94d-8e44-8323-8021-2f7c3e067066`
-
-*[No message content recovered — metadata only]*
----
-
-## The Permutation Flow-Shop Scheduling Using a Genetic ...
-
-**Last updated (IST):** Unknown  
-**Conversation ID:** ``
-
-*[No message content recovered — metadata only]*
 ---
