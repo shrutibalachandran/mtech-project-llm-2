@@ -185,7 +185,7 @@ def _normalize_sig_text(s: str) -> str:
     return s
 
 
-def _postprocess_chatgpt_report(md_text: str) -> tuple[str, dict]:
+def _postprocess_chatgpt_report(md_text: str, partial_convs: list | None = None) -> tuple[str, dict]:
     """
     Clean chatgpt report:
       - remove unknown/low-quality blocks
@@ -205,6 +205,8 @@ def _postprocess_chatgpt_report(md_text: str) -> tuple[str, dict]:
         "removed_dup_cid": 0,
         "removed_dup_clone": 0,
         "moved_deleted": 0,
+        "partial_conversations": 0,
+        "partial_messages": 0,
         "kept": 0,
     }
 
@@ -253,6 +255,32 @@ def _postprocess_chatgpt_report(md_text: str) -> tuple[str, dict]:
     out_lines = list(prefix)
     for b in kept:
         out_lines.extend(b["lines"])
+
+    partial_convs = partial_convs or []
+    if partial_convs:
+        out_lines.append("\n\n---\n\n")
+        out_lines.append("## Appendix: Partially Reconstructed Conversations\n\n")
+        out_lines.append(
+            "These conversations contain readable partial recovery that did not meet strict active "
+            "confidence requirements. Snippets are marked as PARTIAL and may be incomplete.\n\n"
+        )
+        for pc in partial_convs:
+            title = (pc.get("title") or "(untitled partial)").strip()
+            cid = (pc.get("conversation_id") or "").strip()
+            lu = ts_ist(float(pc.get("latest_ts") or 0))
+            msgs = list(pc.get("messages") or [])
+            out_lines.append(f"### {title}\n\n")
+            out_lines.append(f"**Last updated (IST):** {lu}  \n")
+            out_lines.append(f"**Conversation ID:** `{cid}`  \n")
+            out_lines.append(f"**Reconstruction:** PARTIAL ({len(msgs)} snippet{'s' if len(msgs) != 1 else ''})\n\n")
+            for m in msgs:
+                mt = ts_ist(float(m.get("ts") or 0))
+                role = (m.get("role") or "unknown").upper()
+                sn = (m.get("snippet") or "").strip()
+                out_lines.append(f"**[{mt}] PARTIAL {role}:**\n\n{sn}\n\n")
+            out_lines.append("---\n")
+            stats["partial_messages"] += len(msgs)
+        stats["partial_conversations"] = len(partial_convs)
 
     if deleted:
         out_lines.append("\n\n---\n\n")
@@ -345,6 +373,14 @@ def _looks_forensic_fragment(s: str) -> bool:
         return True
     if re.search(r'/(?:conversation-history|backend-api)/', low):
         return True
+    if re.search(r'timestamp"\s*:\s*\d{10,}\s*,\s*"version"\s*:\s*\d+', low):
+        return True
+    if re.search(r'","(?:title|create_time|update_time|mapping|current_node|is_archived|memory_scope|workspace_id)"\s*:', low):
+        return True
+    if "context_scopes_v2" in low or "pageparams" in low:
+        return True
+    if t.count('":') >= 6 and ("{" in t or "}" in t):
+        return True
     return False
 
 
@@ -365,6 +401,32 @@ def _is_high_conf_message(s: str) -> bool:
     if printable < len(s) * 0.90:
         return False
     return letters >= len(s) * 0.18
+
+
+def _is_balanced_partial_message(s: str) -> bool:
+    """Readable but lower-confidence text for partial appendix."""
+    s = (s or "").strip()
+    if len(s) < 8:
+        return False
+    if _looks_forensic_fragment(s):
+        return False
+    if s.startswith("<") and ">" in s[:20]:
+        return False
+    if _replacement_ratio(s) >= 0.08:
+        return False
+    if any((ord(c) < 32 and c not in "\n\r\t") for c in s):
+        return False
+    if re.search(r'^\s*[\{\[]\s*"(?:conversation_id|mapping|title|value|pages|items)"\s*:', s, re.I):
+        return False
+    letters = sum(
+        1 for c in s if c.isalpha() or unicodedata.category(c).startswith("L")
+    )
+    printable = sum(1 for c in s if c.isprintable())
+    if printable < len(s) * 0.85:
+        return False
+    if letters < max(3, int(len(s) * 0.08)):
+        return False
+    return True
 
 
 def _trim_glued_forensic_snippet(s: str) -> str:
@@ -684,6 +746,82 @@ def _validate_chatgpt_active_items(out_items: list) -> tuple[list, dict]:
     return clean, stats
 
 
+def _build_partial_conversations(low_conf_items: list, deleted_cids: set) -> tuple[list, dict]:
+    """
+    Build readable partial conversations (balanced filter) for appendix.
+    Deleted CIDs are excluded to keep deleted segregation unchanged.
+    """
+    valid_roles = {"user", "assistant", "tool", "system"}
+    by_cid: dict = {}
+    seen_keys: set = set()
+    stats = {
+        "included_snippets": 0,
+        "included_conversations": 0,
+        "dropped_missing_cid": 0,
+        "dropped_deleted_cid": 0,
+        "dropped_unreadable": 0,
+        "dropped_bad_role": 0,
+        "dropped_duplicates": 0,
+    }
+
+    for it in low_conf_items:
+        cid = (it.get("conversation_id") or "").strip()
+        title = (it.get("title") or "").strip()
+        role = (it.get("role") or "unknown").strip().lower()
+        snip = (it.get("snippet") or "").strip()
+        ts = float(it.get("timestamp") or 0)
+        if not cid:
+            stats["dropped_missing_cid"] += 1
+            continue
+        if cid in deleted_cids:
+            stats["dropped_deleted_cid"] += 1
+            continue
+        if role not in valid_roles:
+            stats["dropped_bad_role"] += 1
+            continue
+        if not _is_balanced_partial_message(snip):
+            stats["dropped_unreadable"] += 1
+            continue
+
+        norm = _normalize_sig_text(snip)[:350]
+        dedup_key = hashlib.md5(
+            f"{cid}|{role}|{round(ts)}|{norm}".encode("utf-8", errors="ignore")
+        ).hexdigest()
+        if dedup_key in seen_keys:
+            stats["dropped_duplicates"] += 1
+            continue
+        seen_keys.add(dedup_key)
+
+        key = cid.lower()
+        entry = by_cid.get(key)
+        if entry is None:
+            entry = {
+                "conversation_id": cid,
+                "title": title or "(untitled partial)",
+                "latest_ts": ts,
+                "messages": [],
+            }
+            by_cid[key] = entry
+        elif title and (not entry.get("title") or entry.get("title") == "(untitled partial)"):
+            entry["title"] = title
+
+        entry["latest_ts"] = max(float(entry.get("latest_ts") or 0), ts)
+        entry["messages"].append({
+            "role": role,
+            "snippet": snip[:4000],
+            "ts": ts,
+        })
+        stats["included_snippets"] += 1
+
+    out = []
+    for conv in by_cid.values():
+        conv["messages"].sort(key=lambda m: float(m.get("ts") or 0))
+        out.append(conv)
+    out.sort(key=lambda c: float(c.get("latest_ts") or 0), reverse=True)
+    stats["included_conversations"] = len(out)
+    return out, stats
+
+
 def run_chatgpt(paths: dict):
     """Full ChatGPT extraction pipeline → single report.
     Strict mode:
@@ -898,12 +1036,20 @@ def run_chatgpt(paths: dict):
     out_report = _chatgpt_report_out_items(out_items)
     out_report, val_stats = _validate_chatgpt_active_items(out_report)
     chatgpt_cids = sorted({x["conversation_id"] for x in out_report if x.get("conversation_id")})
+    deleted_cids = _load_deleted_cids()
+    partial_convs, partial_stats = _build_partial_conversations(low_conf, deleted_cids)
     print(
         f"      Active validation: kept={val_stats['kept']} removed_missing_cid={val_stats['removed_missing_cid']} "
         f"removed_bad_role={val_stats['removed_bad_role']} removed_bad_time={val_stats['removed_bad_time']} "
         f"removed_garbage={val_stats['removed_garbage']} removed_duplicates={val_stats['removed_duplicates']}"
     )
-    _write_report("CHATGPT", chatgpt_cids, out_report)
+    print(
+        f"      Partial appendix: conversations={partial_stats['included_conversations']} "
+        f"snippets={partial_stats['included_snippets']} dropped_missing_cid={partial_stats['dropped_missing_cid']} "
+        f"dropped_deleted={partial_stats['dropped_deleted_cid']} dropped_unreadable={partial_stats['dropped_unreadable']} "
+        f"dropped_bad_role={partial_stats['dropped_bad_role']} dropped_duplicates={partial_stats['dropped_duplicates']}"
+    )
+    _write_report("CHATGPT", chatgpt_cids, out_report, chatgpt_partial_convs=partial_convs)
     jpath, mpath, arc_count = _write_chatgpt_low_conf_archive(low_conf)
     print(f"      Low-confidence archive: {arc_count} items")
     print(f"      Archive JSON → {jpath}")
@@ -1300,7 +1446,7 @@ def run_claude(paths: dict):
 # REPORT WRITER (single-file output)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def _write_report(app: str, clist, out_items: list, is_claude: bool = False):
+def _write_report(app: str, clist, out_items: list, is_claude: bool = False, chatgpt_partial_convs: list | None = None):
     now = ts_ist(datetime.utcnow().timestamp())
     total_convs = len(clist)
     with_content = sum(1 for x in out_items
@@ -1376,7 +1522,7 @@ def _write_report(app: str, clist, out_items: list, is_claude: bool = False):
         with open(raw_path, "w", encoding="utf-8", newline="\n") as f:
             f.write(report_text)
 
-        cleaned, st = _postprocess_chatgpt_report(report_text)
+        cleaned, st = _postprocess_chatgpt_report(report_text, partial_convs=(chatgpt_partial_convs or []))
         cleaned = _sync_chatgpt_header_counts(cleaned)
         with open(md_path, "w", encoding="utf-8", newline="\n") as f:
             f.write(cleaned)
@@ -1384,7 +1530,8 @@ def _write_report(app: str, clist, out_items: list, is_claude: bool = False):
         print(
             f"    Postprocess: kept={st['kept']}, removed_unknown={st['removed_unknown']}, "
             f"removed_dup_cid={st['removed_dup_cid']}, removed_dup_clone={st['removed_dup_clone']}, "
-            f"moved_deleted={st['moved_deleted']}"
+            f"moved_deleted={st['moved_deleted']}, partial_conversations={st.get('partial_conversations',0)}, "
+            f"partial_messages={st.get('partial_messages',0)}"
         )
         print(f"    Raw backup → {raw_path}")
     else:

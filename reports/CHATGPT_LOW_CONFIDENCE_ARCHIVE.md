@@ -1,399 +1,9 @@
 # CHATGPT Low Confidence Archive
 
-**Generated:** 2026-05-09 12:55:09 IST  
-**Items:** 691
+**Generated:** 2026-05-09 13:16:51 IST  
+**Items:** 661
 
 This file stores low-confidence fragments intentionally excluded from active reconstruction.
-
----
-
-## (untitled)
-
-**Conversation ID:** `696c4ffd-7084-8322-960e-9a21526fae18`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-c4ffd-7084-8322-960e-9a21526fae18","title":"Restrict feature Instagram","create_time":"2026-01-18T03:14:29.342609Z","update_time":"2026-01-18T03:15:52.521386Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false}],"total":29,"limit":28,"offset":0}],"pageParams":[0]},"timestamp":1778309508563,"version":1}Bt^�
-
----
-
-## (untitled)
-
-**Conversation ID:** `696cd439-74c0-8324-bb59-5e543f15efbd`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-cd439-74c0-8324-bb59-5e543f15efbd","title":"CST 402 Exam Prep","create_time":"2026-01-18T12:39:09.960312Z","update_time":"2026-01-18T21:24:14.017532Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c4ffd-7084-8322-960e-9a21526fae18","title":"Restrict feature Instagram","create_time":"2026-01-18T03:14:29.342609Z","update_time":"2026-01-18T03:15:52.521386Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false}],"total":29,"limit":28,"offset":0}],"pageParams":[0]},"timestamp":1778309508563,"version":1}Bt^�
-
----
-
-## (untitled)
-
-**Conversation ID:** `696d5391-f400-8324-b7e8-d03a965faf80`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-d5391-f400-8324-b7e8-d03a965faf80","title":"ChatGPT Version Query","create_time":"2026-01-18T21:41:59.390509Z","update_time":"2026-01-18T21:42:31.324493Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696cd439-74c0-8324-bb59-5e543f15efbd","title":"CST 402 Exam Prep","create_time":"2026-01-18T12:39:09.960312Z","update_time":"2026-01-18T21:24:14.017532Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c4ffd-7084-8322-960e-9a21526fae18","title":"Restrict feature Instagram","create_time":"2026-01-18T03:14:29.342609Z","update_time":"2026-01-18T03:15:52.521386Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false}],"total":29,"limit":28,"offset":0}],"pageParams":[0]},"timestamp":1778309508563,"version":1}Bt^�
-
----
-
-## (untitled)
-
-**Conversation ID:** `696da449-4f58-8324-a0af-2e4c5d0ebd41`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-da449-4f58-8324-a0af-2e4c5d0ebd41","title":"New chat","create_time":"2026-01-19T03:26:15.385921Z","update_time":"2026-01-19T03:26:15.384694Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696d5391-f400-8324-b7e8-d03a965faf80","title":"ChatGPT Version Query","create_time":"2026-01-18T21:41:59.390509Z","update_time":"2026-01-18T21:42:31.324493Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696cd439-74c0-8324-bb59-5e543f15efbd","title":"CST 402 Exam Prep","create_time":"2026-01-18T12:39:09.960312Z","update_time":"2026-01-18T21:24:14.017532Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c4ffd-7084-8322-960e-9a21526fae18","title":"Restrict feature Instagram","create_time":"2026-01-18T03:14:29.342609Z","update_time":"2026-01-18T03:15:52.521386Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false}],"total":29,"limit":28,"offset":0}],"pageParams
-
----
-
-## (untitled)
-
-**Conversation ID:** `696ddf47-9ad4-8323-acfe-8a416db5521b`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-ddf47-9ad4-8323-acfe-8a416db5521b","title":"Genetic Algorithm Explained","create_time":"2026-01-19T07:38:01.728884Z","update_time":"2026-01-19T07:38:12.864695Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696da449-4f58-8324-a0af-2e4c5d0ebd41","title":"New chat","create_time":"2026-01-19T03:26:15.385921Z","update_time":"2026-01-19T03:26:15.384694Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696d5391-f400-8324-b7e8-d03a965faf80","title":"ChatGPT Version Query","create_time":"2026-01-18T21:41:59.390509Z","update_time":"2026-01-18T21:42:31.324493Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696cd439-74c0-8324-bb59-5e543f15efbd","title":"CST 402 Exam Prep","create_time":"2026-01-18T12:39:09.960312Z","update_time":"2026-01-18T21:24:14.017532Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c4ffd-7084-8322-960e-9a21526fae18","
-
----
-
-## (untitled)
-
-**Conversation ID:** `69745b51-22ac-8324-8091-ea9f39cd7dba`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-b51-22ac-8324-8091-ea9f39cd7dba","title":"Time Aptitude Shortcuts","create_time":"2026-01-24T05:41:02.060862Z","update_time":"2026-01-24T05:41:15.670660Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6974406a-8af0-8324-a581-72633eba05d2","title":"QSpiders GD Placement Tips","create_time":"2026-01-24T03:45:49.107354Z","update_time":"2026-01-24T04:37:30.417841Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696ddf47-9ad4-8323-acfe-8a416db5521b","title":"Genetic Algorithm Explained","create_time":"2026-01-19T07:38:01.728884Z","update_time":"2026-01-19T07:38:12.864695Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696da449-4f58-8324-a0af-2e4c5d0ebd41","title":"New chat","create_time":"2026-01-19T03:26:15.385921Z","update_time":"2026-01-19T03:26:15.384694Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696d5391-f400-8324-b7e8-d03a96
-
----
-
-## (untitled)
-
-**Conversation ID:** `6974406a-8af0-8324-a581-72633eba05d2`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-a-8af0-8324-a581-72633eba05d2","title":"QSpiders GD Placement Tips","create_time":"2026-01-24T03:45:49.107354Z","update_time":"2026-01-24T04:37:30.417841Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696ddf47-9ad4-8323-acfe-8a416db5521b","title":"Genetic Algorithm Explained","create_time":"2026-01-19T07:38:01.728884Z","update_time":"2026-01-19T07:38:12.864695Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696da449-4f58-8324-a0af-2e4c5d0ebd41","title":"New chat","create_time":"2026-01-19T03:26:15.385921Z","update_time":"2026-01-19T03:26:15.384694Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696d5391-f400-8324-b7e8-d03a965faf80","title":"ChatGPT Version Query","create_time":"2026-01-18T21:41:59.390509Z","update_time":"2026-01-18T21:42:31.324493Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696cd439-74c0-8324-bb59-5e543f15ef
-
----
-
-## (untitled)
-
-**Conversation ID:** `69747fb6-1908-8322-8d49-787f160405c2`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-fb6-1908-8322-8d49-787f160405c2","title":"QSpiders GD Topics","create_time":"2026-01-24T08:16:01.306161Z","update_time":"2026-01-24T10:16:28.463697Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69745b51-22ac-8324-8091-ea9f39cd7dba","title":"Time Aptitude Shortcuts","create_time":"2026-01-24T05:41:02.060862Z","update_time":"2026-01-24T05:41:15.670660Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6974406a-8af0-8324-a581-72633eba05d2","title":"QSpiders GD Placement Tips","create_time":"2026-01-24T03:45:49.107354Z","update_time":"2026-01-24T04:37:30.417841Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696ddf47-9ad4-8323-acfe-8a416db5521b","title":"Genetic Algorithm Explained","create_time":"2026-01-19T07:38:01.728884Z","update_time":"2026-01-19T07:38:12.864695Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696da449-4f58-8324-a
-
----
-
-## (untitled)
-
-**Conversation ID:** `697824f0-923c-8320-aef0-7dcd5d0eeb4e`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-f0-923c-8320-aef0-7dcd5d0eeb4e","title":"Basic Python Programs","create_time":"2026-01-27T02:37:38.736919Z","update_time":"2026-01-27T02:37:49.142914Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6975b152-0670-8320-8a92-469a05728a77","title":"QSpiders vs Inker","create_time":"2026-01-25T05:59:55.046142Z","update_time":"2026-01-25T06:01:15.703825Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69747fb6-1908-8322-8d49-787f160405c2","title":"QSpiders GD Topics","create_time":"2026-01-24T08:16:01.306161Z","update_time":"2026-01-24T10:16:28.463697Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69745b51-22ac-8324-8091-ea9f39cd7dba","title":"Time Aptitude Shortcuts","create_time":"2026-01-24T05:41:02.060862Z","update_time":"2026-01-24T05:41:15.670660Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6974406a-8af0-8324-a581-72633eba05d2
-
----
-
-## (untitled)
-
-**Conversation ID:** `6975b152-0670-8320-8a92-469a05728a77`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-b152-0670-8320-8a92-469a05728a77","title":"QSpiders vs Inker","create_time":"2026-01-25T05:59:55.046142Z","update_time":"2026-01-25T06:01:15.703825Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69747fb6-1908-8322-8d49-787f160405c2","title":"QSpiders GD Topics","create_time":"2026-01-24T08:16:01.306161Z","update_time":"2026-01-24T10:16:28.463697Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69745b51-22ac-8324-8091-ea9f39cd7dba","title":"Time Aptitude Shortcuts","create_time":"2026-01-24T05:41:02.060862Z","update_time":"2026-01-24T05:41:15.670660Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6974406a-8af0-8324-a581-72633eba05d2","title":"QSpiders GD Placement Tips","create_time":"2026-01-24T03:45:49.107354Z","update_time":"2026-01-24T04:37:30.417841Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696ddf47-9ad4-8323-acfe-8a416
-
----
-
-## (untitled)
-
-**Conversation ID:** `69782b97-ada8-8321-8ae0-02fd6f628660`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-b97-ada8-8321-8ae0-02fd6f628660","title":"Html Button Examples","create_time":"2026-01-27T03:06:06.695316Z","update_time":"2026-01-27T04:00:02.784157Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"697824f0-923c-8320-aef0-7dcd5d0eeb4e","title":"Basic Python Programs","create_time":"2026-01-27T02:37:38.736919Z","update_time":"2026-01-27T02:37:49.142914Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6975b152-0670-8320-8a92-469a05728a77","title":"QSpiders vs Inker","create_time":"2026-01-25T05:59:55.046142Z","update_time":"2026-01-25T06:01:15.703825Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69747fb6-1908-8322-8d49-787f160405c2","title":"QSpiders GD Topics","create_time":"2026-01-24T08:16:01.306161Z","update_time":"2026-01-24T10:16:28.463697Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69745b51-22ac-8324-8091-ea9f39cd7dba",
-
----
-
-## (untitled)
-
-**Conversation ID:** `69801cce-2cc4-8320-838b-eb8026f2838d`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-cce-2cc4-8320-838b-eb8026f2838d","title":"Draw Lord Shiva","create_time":"2026-02-02T03:41:12.211249Z","update_time":"2026-02-02T03:44:50.557096Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69782b97-ada8-8321-8ae0-02fd6f628660","title":"Html Button Examples","create_time":"2026-01-27T03:06:06.695316Z","update_time":"2026-01-27T04:00:02.784157Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"697824f0-923c-8320-aef0-7dcd5d0eeb4e","title":"Basic Python Programs","create_time":"2026-01-27T02:37:38.736919Z","update_time":"2026-01-27T02:37:49.142914Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6975b152-0670-8320-8a92-469a05728a77","title":"QSpiders vs Inker","create_time":"2026-01-25T05:59:55.046142Z","update_time":"2026-01-25T06:01:15.703825Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69747fb6-1908-8322-8d49-787f160405c2","ti
-
----
-
-## (untitled)
-
-**Conversation ID:** `698223a0-2d18-8322-8f58-6799c6acf4a2`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-a0-2d18-8322-8f58-6799c6acf4a2","title":"Curly Hair Cream vs Gel","create_time":"2026-02-03T16:34:47.529115Z","update_time":"2026-02-03T16:35:22.818004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69801cce-2cc4-8320-838b-eb8026f2838d","title":"Draw Lord Shiva","create_time":"2026-02-02T03:41:12.211249Z","update_time":"2026-02-02T03:44:50.557096Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69782b97-ada8-8321-8ae0-02fd6f628660","title":"Html Button Examples","create_time":"2026-01-27T03:06:06.695316Z","update_time":"2026-01-27T04:00:02.784157Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"697824f0-923c-8320-aef0-7dcd5d0eeb4e","title":"Basic Python Programs","create_time":"2026-01-27T02:37:38.736919Z","update_time":"2026-01-27T02:37:49.142914Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6975b152-0670-8320-8a92-469a05728a77
-
----
-
-## (untitled)
-
-**Conversation ID:** `698a58dd-c010-8324-a167-9caba679935a`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-a58dd-c010-8324-a167-9caba679935a","title":"Advantages of Distributed Systems","create_time":"2026-02-09T22:00:12.451546Z","update_time":"2026-02-09T22:00:26.655638Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698819aa-5578-8322-a148-2c3e772d525f","title":"JEE vs GATE Toughness","create_time":"2026-02-08T05:06:02.674405Z","update_time":"2026-02-08T05:09:06.874940Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69839453-76cc-8322-b294-ca0f8a87afd7","title":"Artemis II Overview","create_time":"2026-02-04T18:47:52.175813Z","update_time":"2026-02-04T18:47:58.432280Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69839134-d7d4-8324-8c71-2eeb374b5e35","title":"Web Page Design AI","create_time":"2026-02-04T18:34:33.694359Z","update_time":"2026-02-04T18:47:23.589490Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698223a0-2d18-8322-8f
-
----
-
-## (untitled)
-
-**Conversation ID:** `698819aa-5578-8322-a148-2c3e772d525f`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-aa-5578-8322-a148-2c3e772d525f","title":"JEE vs GATE Toughness","create_time":"2026-02-08T05:06:02.674405Z","update_time":"2026-02-08T05:09:06.874940Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69839453-76cc-8322-b294-ca0f8a87afd7","title":"Artemis II Overview","create_time":"2026-02-04T18:47:52.175813Z","update_time":"2026-02-04T18:47:58.432280Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69839134-d7d4-8324-8c71-2eeb374b5e35","title":"Web Page Design AI","create_time":"2026-02-04T18:34:33.694359Z","update_time":"2026-02-04T18:47:23.589490Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698223a0-2d18-8322-8f58-6799c6acf4a2","title":"Curly Hair Cream vs Gel","create_time":"2026-02-03T16:34:47.529115Z","update_time":"2026-02-03T16:35:22.818004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69801cce-2cc4-8320-838b-eb8026f283
-
----
-
-## (untitled)
-
-**Conversation ID:** `69839453-76cc-8322-b294-ca0f8a87afd7`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-cc-8322-b294-ca0f8a87afd7","title":"Artemis II Overview","create_time":"2026-02-04T18:47:52.175813Z","update_time":"2026-02-04T18:47:58.432280Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69839134-d7d4-8324-8c71-2eeb374b5e35","title":"Web Page Design AI","create_time":"2026-02-04T18:34:33.694359Z","update_time":"2026-02-04T18:47:23.589490Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698223a0-2d18-8322-8f58-6799c6acf4a2","title":"Curly Hair Cream vs Gel","create_time":"2026-02-03T16:34:47.529115Z","update_time":"2026-02-03T16:35:22.818004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69801cce-2cc4-8320-838b-eb8026f2838d","title":"Draw Lord Shiva","create_time":"2026-02-02T03:41:12.211249Z","update_time":"2026-02-02T03:44:50.557096Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69782b97-ada8-8321-8ae0-02fd6f628660","title"
-
----
-
-## (untitled)
-
-**Conversation ID:** `69839134-d7d4-8324-8c71-2eeb374b5e35`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-d7d4-8324-8c71-2eeb374b5e35","title":"Web Page Design AI","create_time":"2026-02-04T18:34:33.694359Z","update_time":"2026-02-04T18:47:23.589490Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698223a0-2d18-8322-8f58-6799c6acf4a2","title":"Curly Hair Cream vs Gel","create_time":"2026-02-03T16:34:47.529115Z","update_time":"2026-02-03T16:35:22.818004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69801cce-2cc4-8320-838b-eb8026f2838d","title":"Draw Lord Shiva","create_time":"2026-02-02T03:41:12.211249Z","update_time":"2026-02-02T03:44:50.557096Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69782b97-ada8-8321-8ae0-02fd6f628660","title":"Html Button Examples","create_time":"2026-01-27T03:06:06.695316Z","update_time":"2026-01-27T04:00:02.784157Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"697824f0-923c-8320-aef0-7dcd5d0eeb4e","tit
-
----
-
-## (untitled)
-
-**Conversation ID:** `698aa211-da78-8320-9624-da443243d1aa`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-aa211-da78-8320-9624-da443243d1aa","title":"Advantages of Distributed Systems","create_time":"2026-02-10T03:12:26.467967Z","update_time":"2026-02-10T03:29:28.510079Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698a58dd-c010-8324-a167-9caba679935a","title":"Advantages of Distributed Systems","create_time":"2026-02-09T22:00:12.451546Z","update_time":"2026-02-09T22:00:26.655638Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698819aa-5578-8322-a148-2c3e772d525f","title":"JEE vs GATE Toughness","create_time":"2026-02-08T05:06:02.674405Z","update_time":"2026-02-08T05:09:06.874940Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69839453-76cc-8322-b294-ca0f8a87afd7","title":"Artemis II Overview","create_time":"2026-02-04T18:47:52.175813Z","update_time":"2026-02-04T18:47:58.432280Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698391
-
----
-
-## (untitled)
-
-**Conversation ID:** `698ab596-09e4-8324-a95e-59734c54b680`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-ab596-09e4-8324-a95e-59734c54b680","title":"Advantages of Distributed Systems","create_time":"2026-02-10T04:35:50.908243Z","update_time":"2026-02-10T07:33:11.732640Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698aa211-da78-8320-9624-da443243d1aa","title":"Advantages of Distributed Systems","create_time":"2026-02-10T03:12:26.467967Z","update_time":"2026-02-10T03:29:28.510079Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698a58dd-c010-8324-a167-9caba679935a","title":"Advantages of Distributed Systems","create_time":"2026-02-09T22:00:12.451546Z","update_time":"2026-02-09T22:00:26.655638Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698819aa-5578-8322-a148-2c3e772d525f","title":"JEE vs GATE Toughness","create_time":"2026-02-08T05:06:02.674405Z","update_time":"2026-02-08T05:09:06.874940Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false}
-
----
-
-## (untitled)
-
-**Conversation ID:** `698cd419-4770-8322-8e79-429eea23c619`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-cd419-4770-8322-8e79-429eea23c619","title":"Instagram Restrict Feature","create_time":"2026-02-11T19:10:22.976330Z","update_time":"2026-02-11T19:10:34.603062Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698ab596-09e4-8324-a95e-59734c54b680","title":"Advantages of Distributed Systems","create_time":"2026-02-10T04:35:50.908243Z","update_time":"2026-02-10T07:33:11.732640Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698aa211-da78-8320-9624-da443243d1aa","title":"Advantages of Distributed Systems","create_time":"2026-02-10T03:12:26.467967Z","update_time":"2026-02-10T03:29:28.510079Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698a58dd-c010-8324-a167-9caba679935a","title":"Advantages of Distributed Systems","create_time":"2026-02-09T22:00:12.451546Z","update_time":"2026-02-09T22:00:26.655638Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":f
-
----
-
-## (untitled)
-
-**Conversation ID:** `6993a349-ffb0-8324-9670-324e06a9c643`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-a349-ffb0-8324-9670-324e06a9c643","title":"Grammar Correction Explanation","create_time":"2026-02-16T23:08:00.064453Z","update_time":"2026-02-16T23:09:04.950558Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69928c22-3050-8321-93c7-aa34952bcc77","title":"Distributed Systems Topic","create_time":"2026-02-16T03:17:05.289282Z","update_time":"2026-02-16T03:17:12.611004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698cd419-4770-8322-8e79-429eea23c619","title":"Instagram Restrict Feature","create_time":"2026-02-11T19:10:22.976330Z","update_time":"2026-02-11T19:10:34.603062Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698ab596-09e4-8324-a95e-59734c54b680","title":"Advantages of Distributed Systems","create_time":"2026-02-10T04:35:50.908243Z","update_time":"2026-02-10T07:33:11.732640Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":
-
----
-
-## (untitled)
-
-**Conversation ID:** `69928c22-3050-8321-93c7-aa34952bcc77`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-c22-3050-8321-93c7-aa34952bcc77","title":"Distributed Systems Topic","create_time":"2026-02-16T03:17:05.289282Z","update_time":"2026-02-16T03:17:12.611004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698cd419-4770-8322-8e79-429eea23c619","title":"Instagram Restrict Feature","create_time":"2026-02-11T19:10:22.976330Z","update_time":"2026-02-11T19:10:34.603062Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698ab596-09e4-8324-a95e-59734c54b680","title":"Advantages of Distributed Systems","create_time":"2026-02-10T04:35:50.908243Z","update_time":"2026-02-10T07:33:11.732640Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698aa211-da78-8320-9624-da443243d1aa","title":"Advantages of Distributed Systems","create_time":"2026-02-10T03:12:26.467967Z","update_time":"2026-02-10T03:29:28.510079Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id
-
----
-
-## (untitled)
-
-**Conversation ID:** `68e39134-ed94-8323-aedc-66676194a0a5`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-e39134-ed94-8323-aedc-66676194a0a5","title":"Forensic evidence in ChatGPT","create_time":"2025-10-06T09:51:50.700182Z","update_time":"2026-02-17T08:54:57.079812Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6916300d-fc6c-8323-b5a2-ddf99ef311c5","title":"PEAS description part picking","create_time":"2025-11-13T19:22:55.373799Z","update_time":"2026-02-17T08:53:14.873732Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c9f55-c698-8321-b1f3-90463b16a523","title":"Soft Computing Exam Guide","create_time":"2026-01-18T08:53:07.150154Z","update_time":"2026-02-17T08:51:17.189548Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69360b0e-35a0-8323-aaaf-8e744ebb2690","title":"Bibliography extraction","create_time":"2025-12-07T23:17:35.055632Z","update_time":"2026-02-17T08:37:57.070344Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6993a3
-
----
-
-## (untitled)
-
-**Conversation ID:** `6916300d-fc6c-8323-b5a2-ddf99ef311c5`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-d-fc6c-8323-b5a2-ddf99ef311c5","title":"PEAS description part picking","create_time":"2025-11-13T19:22:55.373799Z","update_time":"2026-02-17T08:53:14.873732Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c9f55-c698-8321-b1f3-90463b16a523","title":"Soft Computing Exam Guide","create_time":"2026-01-18T08:53:07.150154Z","update_time":"2026-02-17T08:51:17.189548Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69360b0e-35a0-8323-aaaf-8e744ebb2690","title":"Bibliography extraction","create_time":"2025-12-07T23:17:35.055632Z","update_time":"2026-02-17T08:37:57.070344Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6993a349-ffb0-8324-9670-324e06a9c643","title":"Grammar Correction Explanation","create_time":"2026-02-16T23:08:00.064453Z","update_time":"2026-02-16T23:09:04.950558Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69928c22-
-
----
-
-## (untitled)
-
-**Conversation ID:** `696c9f55-c698-8321-b1f3-90463b16a523`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-c9f55-c698-8321-b1f3-90463b16a523","title":"Soft Computing Exam Guide","create_time":"2026-01-18T08:53:07.150154Z","update_time":"2026-02-17T08:51:17.189548Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69360b0e-35a0-8323-aaaf-8e744ebb2690","title":"Bibliography extraction","create_time":"2025-12-07T23:17:35.055632Z","update_time":"2026-02-17T08:37:57.070344Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6993a349-ffb0-8324-9670-324e06a9c643","title":"Grammar Correction Explanation","create_time":"2026-02-16T23:08:00.064453Z","update_time":"2026-02-16T23:09:04.950558Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69928c22-3050-8321-93c7-aa34952bcc77","title":"Distributed Systems Topic","create_time":"2026-02-16T03:17:05.289282Z","update_time":"2026-02-16T03:17:12.611004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698cd419-
-
----
-
-## (untitled)
-
-**Conversation ID:** `69360b0e-35a0-8323-aaaf-8e744ebb2690`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-b0e-35a0-8323-aaaf-8e744ebb2690","title":"Bibliography extraction","create_time":"2025-12-07T23:17:35.055632Z","update_time":"2026-02-17T08:37:57.070344Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6993a349-ffb0-8324-9670-324e06a9c643","title":"Grammar Correction Explanation","create_time":"2026-02-16T23:08:00.064453Z","update_time":"2026-02-16T23:09:04.950558Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69928c22-3050-8321-93c7-aa34952bcc77","title":"Distributed Systems Topic","create_time":"2026-02-16T03:17:05.289282Z","update_time":"2026-02-16T03:17:12.611004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698cd419-4770-8322-8e79-429eea23c619","title":"Instagram Restrict Feature","create_time":"2026-02-11T19:10:22.976330Z","update_time":"2026-02-11T19:10:34.603062Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"698ab596-0
-
----
-
-## (untitled)
-
-**Conversation ID:** `67157420-73ec-8009-86de-ecf8761371e7`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-ec-8009-86de-ecf8761371e7","title":"Network Congestion Overview","create_time":"2024-10-20T21:20:32.735291Z","update_time":"2026-05-06T05:53:46.332004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":null,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69f27a32-3a90-83e8-bd4e-a4f4c110e6e3","title":"Oracles in Smart Contracts","create_time":"2026-04-29T21:37:56.629071Z","update_time":"2026-04-29T22:05:57.745925Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":[],"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"68e39134-ed94-8323-aedc-66676194a0a5","title":"Forensic evidence in ChatGPT","create_time":"2025-10-06T09:51:50.700182Z","update_time":"2026-02-17T08:54:57.079812Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6916300d-fc6c-8323-b5a2-ddf99ef311c5","title":"PEAS description part picking","create_time":"2025-11-13T19:22:55.373799Z","update_time":"2026-02-17T08:53:14.873732Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c9f55-c698
-
----
-
-## (untitled)
-
-**Conversation ID:** `69f27a32-3a90-83e8-bd4e-a4f4c110e6e3`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-f27a32-3a90-83e8-bd4e-a4f4c110e6e3","title":"Oracles in Smart Contracts","create_time":"2026-04-29T21:37:56.629071Z","update_time":"2026-04-29T22:05:57.745925Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":[],"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"68e39134-ed94-8323-aedc-66676194a0a5","title":"Forensic evidence in ChatGPT","create_time":"2025-10-06T09:51:50.700182Z","update_time":"2026-02-17T08:54:57.079812Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6916300d-fc6c-8323-b5a2-ddf99ef311c5","title":"PEAS description part picking","create_time":"2025-11-13T19:22:55.373799Z","update_time":"2026-02-17T08:53:14.873732Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"696c9f55-c698-8321-b1f3-90463b16a523","title":"Soft Computing Exam Guide","create_time":"2026-01-18T08:53:07.150154Z","update_time":"2026-02-17T08:51:17.189548Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69360
-
----
-
-## (untitled)
-
-**Conversation ID:** `7210be1e-a888-4d72-b822-8e0fe3f7a98e`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] ASSISTANT:**
-
-value":{"pages":[{"items":[{"id":"67157420-73ec-8009-86de-ecf8761371e7","title":"Network Congestion Overview","create_time":"2024-10-20T21:20:32.735291Z","update_time":"2026-05-06T05:53:46.332004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":null,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69f27a32-3a90-83e8-bd4e-a4f4c110e6e3","title":"Oracles in Smart Contracts","create_time":"2026-04-29T21:37:56.629071Z","update_time":"2026-04-29T22:05:57.745925Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":[],"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"68e39134-ed94-8323-aedc-66676194a0a5","title":"Forensic evidence in ChatGPT","create_time":"2025-10-06T09:51:50.700182Z","update_time":"2026-02-17T08:54:57.079812Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6916300d-fc6c-8323-b5a2-ddf99ef311c5","title":"PEAS description part picking","create_time":"2025-11-13T19:22:55.373799Z","update_time":"2026-02-17T08:53:14.873732Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"su
-
----
-
-## (untitled)
-
-**Conversation ID:** `25312097-4d19-422e-bdec-8377f2e57b0e`  
-**Reason:** wal_untrusted_for_active  
-**Source:** `wal_log`  
-**Timestamp (IST):** 2026-05-09 12:55:09 IST
-
-**[2026-05-09 12:55:09 IST] USER:**
-
-value":{"pages":[{"items":[{"id":"67157420-73ec-8009-86de-ecf8761371e7","title":"Network Congestion Overview","create_time":"2024-10-20T21:20:32.735291Z","update_time":"2026-05-06T05:53:46.332004Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":null,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"69f27a32-3a90-83e8-bd4e-a4f4c110e6e3","title":"Oracles in Smart Contracts","create_time":"2026-04-29T21:37:56.629071Z","update_time":"2026-04-29T22:05:57.745925Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":[],"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"68e39134-ed94-8323-aedc-66676194a0a5","title":"Forensic evidence in ChatGPT","create_time":"2025-10-06T09:51:50.700182Z","update_time":"2026-02-17T08:54:57.079812Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"sugar_item_visible":false},{"id":"6916300d-fc6c-8323-b5a2-ddf99ef311c5","title":"PEAS description part picking","create_time":"2025-11-13T19:22:55.373799Z","update_time":"2026-02-17T08:53:14.873732Z","pinned_time":null,"mapping":null,"current_node":null,"conversation_template_id":null,"gizmo_id":null,"is_archived":false,"is_starred":null,"is_temporary_chat":false,"is_do_not_remember":false,"memory_scope":"global_enabled","context_scopes":null,"context_scopes_v2":{"context_scopes":[{"is_siloed":false,"scope_namespace":"global","sub_scope":null,"key":null,"key_timestamp":null,"key_scoped_access_claim":null}]},"workspace_id":null,"async_status":null,"safe_urls":[],"blocked_urls":[],"conversation_origin":null,"snippet":null,"sugar_item_id":null,"su
 
 ---
 
@@ -413,7 +23,7 @@ before ending its mission in 2017.\n\nIf you want, I can:\n- Compare **Cassini v
 ## Snow Moon Meaning
 
 **Conversation ID:** `697f7c07-e68c-8323-b843-f048193b7ab1`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** 2026-03-19 11:57:34 IST
 
@@ -452,7 +62,7 @@ nt, I can also tell you:\n- When the next Snow Moon occurs\n- Snow Moon vs Blood
 ## Distributed Systems Topic
 
 **Conversation ID:** `698223a0-2d18-8322-8f58-6799c6acf4a2`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** 2026-03-19 11:57:34 IST
 
@@ -14498,7 +14108,7 @@ Do you want me to do that?
 ## CSS styling example
 
 **Conversation ID:** `9c1b6d8c-9330-491e-9dc9-a863deedeb7b`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** 2025-11-17 10:04:14 IST
 
@@ -28750,7 +28360,7 @@ ng, and facilitates modular program design. The relocation process is handled by
 ## Results Discussion Conclusion Explanation
 
 **Conversation ID:** `694ce174-f998-8324-8cf5-bc5543884efa`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -28841,7 +28451,7 @@ alse,"is_starred":null,"update_time":1763291557.859687,"payload":{"kind":"title"
 ## Radio buttons vs checkboxes
 
 **Conversation ID:** `691850a8-31c8-8321-8243-57dec3467025`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -28854,7 +28464,7 @@ alse,"is_starred":null,"update_time":1763291557.859687,"payload":{"kind":"title"
 ## Radio buttons vs checkboxes
 
 **Conversation ID:** `6919412d-f620-8322-a320-6b0a88f35e39`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29010,7 +28620,7 @@ ting.  \n- The initial solution obtained may be **far from optimal**.\n\n---\n\n
 ## PEAS description part picking
 
 **Conversation ID:** `6916300d-fc6c-8323-b5a2-ddf99ef311c5`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29413,7 +29023,7 @@ Scheduling Problem to minimize makespan.","For three machines, Johnson's rule ca
 ## Mod-07 Lec-26 Flow shop scheduling -- Three machines ...
 
 **Conversation ID:** `670f368a-781f-405d-82a5-aba933bfd1df`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29426,7 +29036,7 @@ Scheduling Problem to minimize makespan.","For three machines, Johnson's rule ca
 ## Mod-07 Lec-26 Flow shop scheduling -- Three machines ...
 
 **Conversation ID:** `a5701d2a-c6a7-4f96-bfbe-b3173750c579`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29439,7 +29049,7 @@ rn_exchange_id":"4f76a7c2-9d4c-47ee-803d-7b30a088d4ac","timestamp_":"absolute","
 ## Mod-07 Lec-26 Flow shop scheduling -- Three machines ...
 
 **Conversation ID:** `f5ef957a-073e-4a22-80b5-e7b9a9c99b93`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29452,7 +29062,7 @@ rn_exchange_id":"4f76a7c2-9d4c-47ee-803d-7b30a088d4ac","timestamp_":"absolute","
 ## Minimising makespan in distributed assembly hybrid ...
 
 **Conversation ID:** `d55f171c-d9da-4943-8ac5-12103b48e69a`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29517,7 +29127,7 @@ ecution make it fast but less powerful compared to multi-pass assemblers or thos
 ## MODULE 2 SC.pdf
 
 **Conversation ID:** `14b862db-34a4-46bb-b228-60afa52b04e2`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29530,7 +29140,7 @@ E 2 SC.pdf","mime_type":"application/pdf","file_token_size":3499,"source":"local
 ## MODULE 2 SC.pdf
 
 **Conversation ID:** `3c4351d8-8db5-46d7-8abe-154f98ea3ecb`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29543,7 +29153,7 @@ E 2 SC.pdf","mime_type":"application/pdf","file_token_size":3499,"source":"local
 ## MODULE 2 SC.pdf
 
 **Conversation ID:** `42414fe9-84b4-4518-b60d-8840a05f8a98`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29556,7 +29166,7 @@ id":"4de07f8f-c829-46b7-aa33-c6c2ae338437","is_visually_hidden_from_conversation
 ## MODULE 2 SC.pdf
 
 **Conversation ID:** `4de07f8f-c829-46b7-aa33-c6c2ae338437`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29569,7 +29179,7 @@ id":"4de07f8f-c829-46b7-aa33-c6c2ae338437","is_visually_hidden_from_conversation
 ## MODULE 1 SC.pdf
 
 **Conversation ID:** `a6d43012-2941-4c6f-befb-8fbe161064d1`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29582,7 +29192,7 @@ id":"4de07f8f-c829-46b7-aa33-c6c2ae338437","is_visually_hidden_from_conversation
 ## MODULE 1 SC.pdf
 
 **Conversation ID:** `ab876d1e-0d11-4e29-99a4-f34a1f07f3dc`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29595,7 +29205,7 @@ E 1 SC.pdf","mime_type":"application/pdf","file_token_size":7236,"source":"local
 ## MODULE 1 SC.pdf
 
 **Conversation ID:** `bcc60d78-5379-471c-902a-9fc11b68b4f8`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29608,7 +29218,7 @@ ab27-4ed4-85fe-1c5007bee47f","turn_exchange_id":"a6d43012-2941-4c6f-befb-8fbe161
 ## MODULE 1 SC.pdf
 
 **Conversation ID:** `c60735d3-7b78-41f6-b8ab-3e9b986dc64d`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29621,7 +29231,7 @@ ab27-4ed4-85fe-1c5007bee47f","turn_exchange_id":"a6d43012-2941-4c6f-befb-8fbe161
 ## MODULE 1 SC.pdf
 
 **Conversation ID:** `d4c3a972-8cc6-422a-8d2d-f94cff4d740d`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -29894,7 +29504,7 @@ local evidence** (like specific file paths, cache locations, registry entries, e
 ## Grammar Correction Explanation
 
 **Conversation ID:** `698819aa-5578-8322-a148-2c3e772d525f`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -30440,7 +30050,7 @@ reactive)** to **intelligent (learning)**,  \n> improving their ability to sense
 ## Distributed Systems Topic
 
 **Conversation ID:** `698aa211-da78-8320-9624-da443243d1aa`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -30609,7 +30219,7 @@ eksforgeeks.org)  \n\nWould you like more questions on a specific topic, like **
 ## DOC-20250715-WA0012..pdf
 
 **Conversation ID:** `36365cd9-1ce4-4d2e-823f-bc90b7b2034d`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -30635,7 +30245,7 @@ ations\n\nIf you meant something else (like *What is 5 in binary?*, or *What doe
 ## Create pie chart
 
 **Conversation ID:** `692ae0af-585c-8321-83be-52863a85c403`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -30765,7 +30375,7 @@ ot | MAX | Choose maximum | A=3 |\n\n---\n\nWould you like me to draw a small **
 ## Confined space safety precautions
 
 **Conversation ID:** `8737d54f-a9d5-4d84-ad49-96541a6d3eae`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -30778,7 +30388,7 @@ ot | MAX | Choose maximum | A=3 |\n\n---\n\nWould you like me to draw a small **
 ## Confined space safety precautions
 
 **Conversation ID:** `c3f8126b-22ac-4c17-9f3f-571d72bf9575`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -30791,7 +30401,7 @@ e entering a confined space"]},"status":"finished_successfully","end_turn":null,
 ## Confined space safety precautions
 
 **Conversation ID:** `f7db94bd-f3bd-4d1f-a7f8-5a0ffe0a179d`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -30908,7 +30518,7 @@ If you want, I can make a **small JavaScript example showing both `parse` and `s
 ## CSS styling example
 
 **Conversation ID:** `691a31b6-4fe0-8320-bdab-4025f02b53bc`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31025,7 +30635,7 @@ hart showing the reaction of other vehicles ... 70% ...Delayed Reaction Reported
 ## Bibliography extraction
 
 **Conversation ID:** `5be28f3a-be62-46c1-958f-e198fd0fe5cd`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31038,7 +30648,7 @@ fa44-4a1f-b633-810118b26cb0","turn_exchange_id":"d7aa4576-45d0-436d-8dad-9c31d73
 ## Bibliography extraction
 
 **Conversation ID:** `5c2466b4-f671-4c46-9d31-b82730c9c77c`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31051,7 +30661,7 @@ fa44-4a1f-b633-810118b26cb0","turn_exchange_id":"d7aa4576-45d0-436d-8dad-9c31d73
 ## Bibliography extraction
 
 **Conversation ID:** `d7aa4576-45d0-436d-8dad-9c31d7337d9a`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31064,7 +30674,7 @@ fa44-4a1f-b633-810118b26cb0","turn_exchange_id":"d7aa4576-45d0-436d-8dad-9c31d73
 ## Bibliography extraction
 
 **Conversation ID:** `e95cedbd-c4ed-4237-9047-0bcebe722f4f`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31116,7 +30726,7 @@ tion** problems by using bounds to eliminate suboptimal solutions early.\n\nWoul
 ## Assignment problem solution
 
 **Conversation ID:** `2dca51cb-83c1-4ae9-abb4-d94bf1e22ea8`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31129,7 +30739,7 @@ a table is given fo this qn"]},"status":"finished_successfully","end_turn":null,
 ## Assignment problem solution
 
 **Conversation ID:** `9532f7c0-bff2-4a19-8b39-d7ea59b395a3`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31142,7 +30752,7 @@ a table is given fo this qn"]},"status":"finished_successfully","end_turn":null,
 ## Assignment problem solution
 
 **Conversation ID:** `cc10a163-40cd-4262-aa80-4fc7189f9724`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31311,7 +30921,7 @@ de the paper in section VIII by highlighting some\n\nof the future research scop
 ## A computational efficient optimization of flow shop ...
 
 **Conversation ID:** `1084ca26-729b-4ca4-b11c-28426d779690`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31324,7 +30934,7 @@ de the paper in section VIII by highlighting some\n\nof the future research scop
 ## A computational efficient optimization of flow shop ...
 
 **Conversation ID:** `131e6476-31ca-4cf0-90cf-12ba7f8016e3`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31337,7 +30947,7 @@ de the paper in section VIII by highlighting some\n\nof the future research scop
 ## A computational efficient optimization of flow shop ...
 
 **Conversation ID:** `3c08ba11-1fb3-4cf9-a378-e6e4b0f47e94`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31350,7 +30960,7 @@ a table is given fo this qn"]},"status":"finished_successfully","end_turn":null,
 ## A computational efficient optimization of flow shop ...
 
 **Conversation ID:** `4f76a7c2-9d4c-47ee-803d-7b30a088d4ac`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31363,7 +30973,7 @@ a table is given fo this qn"]},"status":"finished_successfully","end_turn":null,
 ## A computational efficient optimization of flow shop ...
 
 **Conversation ID:** `b4966662-b280-4a9d-bf3b-0ff60013817b`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31376,7 +30986,7 @@ b7-a599-8984d278fa10","turn_exchange_id":"4f76a7c2-9d4c-47ee-803d-7b30a088d4ac",
 ## A computational efficient optimization of flow shop ...
 
 **Conversation ID:** `f6f4724b-6f78-47b7-a599-8984d278fa10`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31389,7 +30999,7 @@ xchange_id":"4f76a7c2-9d4c-47ee-803d-7b30a088d4ac","timestamp_":"absolute","mode
 ## A computational efficient optimization of flow shop ...
 
 **Conversation ID:** `fadaaa0b-30fd-432e-abf1-97ec63793182`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
@@ -31402,7 +31012,7 @@ a table is given fo this qn"]},"status":"finished_successfully","end_turn":null,
 ## A Reinforcement Learning Approach to Robust Scheduling of ...
 
 **Conversation ID:** `4a5a2053-5c5f-49bb-b2e0-ec382c6bf584`  
-**Reason:** historical_not_active  
+**Reason:** garbage_or_low_conf  
 **Source:** `historical_file`  
 **Timestamp (IST):** Unknown
 
