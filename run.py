@@ -471,16 +471,81 @@ def _trim_glued_forensic_snippet(s: str) -> str:
     return s.strip()
 
 
-def _merge_chatgpt_convs_by_uuid(convs: dict, skip_titles: set) -> dict:
-    """One row per conversation UUID; merges duplicate keys that share the same id."""
+# ── Topic-similarity helpers (Rules 1-4) ─────────────────────────────────────
+
+_STOPWORDS = frozenset({
+    "the", "a", "an", "is", "in", "it", "of", "to", "and", "or", "that",
+    "this", "for", "on", "with", "you", "i", "my", "your", "we", "are",
+    "was", "be", "at", "by", "from", "as", "have", "has", "not", "do",
+    "did", "can", "will", "but", "so", "if", "me", "he", "she", "they",
+    "then", "what", "how", "when", "where", "which", "its", "our", "their",
+    "about", "also", "just", "more", "use", "used", "using", "like",
+})
+_TOPIC_DRIFT_THRESHOLD = 0.15  # Jaccard below this → split instead of merge
+
+
+def _word_set(text: str, max_words: int = 40) -> frozenset:
+    """Significant word set for topic comparison (stopwords excluded)."""
+    words = re.findall(r'[a-zA-Z]{3,}', (text or ""))
+    return frozenset(
+        w.lower() for w in words[:max_words] if w.lower() not in _STOPWORDS
+    )
+
+
+def _jaccard(a: frozenset, b: frozenset) -> float:
+    if not a or not b:
+        return 0.0
+    return len(a & b) / len(a | b)
+
+
+def _infer_dominant_title(msgs: list, fallback_title: str) -> tuple[str, bool]:
+    """
+    Infer dominant topic from all message snippets.
+    Returns (best_title, is_low_confidence).
+    Accepts fallback_title if it overlaps with dominant words, otherwise flags
+    the title as [LOW CONFIDENCE TITLE].
+    """
+    all_text = " ".join((m.get("snippet") or "") for m in (msgs or []))
+    words = re.findall(r'[a-zA-Z]{4,}', all_text)
+    freq: dict[str, int] = {}
+    for w in words:
+        wl = w.lower()
+        if wl in _STOPWORDS:
+            continue
+        freq[wl] = freq.get(wl, 0) + 1
+    if not freq:
+        return (fallback_title or "(untitled)"), True
+    top_words = [w for w, _ in sorted(freq.items(), key=lambda x: -x[1])[:5]]
+    dom_set = frozenset(top_words)
+    if fallback_title:
+        ft_set = _word_set(fallback_title, max_words=20)
+        if ft_set & dom_set:
+            return fallback_title, False   # title matches dominant topic
+        # Title doesn't overlap — mark low confidence
+        return fallback_title, True
+    inferred = " ".join(top_words[:3]).title()
+    return inferred, True
+
+
+def _merge_chatgpt_convs_by_uuid(convs: dict, skip_titles: set) -> tuple[dict, list]:
+    """One row per conversation UUID; merges duplicate keys that share the same id.
+
+    Returns (merged_dict, drifted_items) where drifted_items contains records
+    that were NOT merged because topic-drift was detected (Rules 1, 2, 3).
+    Their messages are routed to the low-confidence / partial appendix by the caller.
+    """
     by_uuid: dict = {}
     rest = {}
+    drifted: list = []   # records split off due to topic drift
+
     for _key, c in convs.items():
         cid = (c.get("cid") or "").strip()
         if not cid:
             rest[_key] = c
             continue
         cl = cid.lower()
+        new_msgs = list(c.get("msgs") or [])
+
         if cl not in by_uuid:
             by_uuid[cl] = {
                 "cid": cid,
@@ -488,15 +553,38 @@ def _merge_chatgpt_convs_by_uuid(convs: dict, skip_titles: set) -> dict:
                 "ts": float(c.get("ts") or 0),
                 "is_archived": bool(c.get("is_archived")),
                 "is_starred": bool(c.get("is_starred")),
-                "msgs": list(c.get("msgs") or []),
+                "msgs": new_msgs,
             }
             continue
+
         tgt = by_uuid[cl]
-        seen = {m["snippet"][:100] for m in tgt["msgs"]}
-        for m in (c.get("msgs") or []):
+        tgt_msgs = tgt["msgs"]
+
+        # ── Topic-drift guard (Rules 1, 2, 3) ────────────────────────────
+        # Only compare when both sides carry real message content.
+        if tgt_msgs and new_msgs:
+            tgt_text = " ".join(m.get("snippet", "") for m in tgt_msgs[:3])
+            new_text  = " ".join(m.get("snippet", "") for m in new_msgs[:3])
+            combined_tgt = (tgt.get("title") or "") + " " + tgt_text
+            combined_new  = (c.get("title") or "")   + " " + new_text
+            sim = _jaccard(_word_set(combined_tgt), _word_set(combined_new))
+            if sim < _TOPIC_DRIFT_THRESHOLD:
+                # Divergent topic — split off; caller routes to low_conf/partial.
+                drifted.append({
+                    "cid":   cid,
+                    "title": c.get("title") or tgt.get("title") or "",
+                    "ts":    float(c.get("ts") or 0),
+                    "msgs":  new_msgs,
+                    "_drift_similarity": sim,
+                })
+                continue
+
+        # No drift — standard merge
+        seen = {m["snippet"][:100] for m in tgt_msgs}
+        for m in new_msgs:
             sk = m["snippet"][:100]
             if sk not in seen:
-                tgt["msgs"].append(m)
+                tgt_msgs.append(m)
                 seen.add(sk)
         ot = c.get("title") or ""
         if ot and ot not in skip_titles:
@@ -504,11 +592,12 @@ def _merge_chatgpt_convs_by_uuid(convs: dict, skip_titles: set) -> dict:
                 tgt["title"] = ot
         tgt["ts"] = max(tgt["ts"], float(c.get("ts") or 0))
         tgt["is_archived"] = tgt["is_archived"] or bool(c.get("is_archived"))
-        tgt["is_starred"] = tgt["is_starred"] or bool(c.get("is_starred"))
+        tgt["is_starred"]  = tgt["is_starred"]  or bool(c.get("is_starred"))
+
     out = dict(rest)
     for _cl, c in by_uuid.items():
         out[c["cid"]] = c
-    return out
+    return out, drifted
 
 
 def _chatgpt_report_out_items(out_items: list) -> list:
@@ -728,12 +817,19 @@ def _write_chatgpt_low_conf_archive(items: list):
 
 
 def _validate_chatgpt_active_items(out_items: list) -> tuple[list, dict]:
-    """Final guardrail pass for active report integrity."""
+    """Final guardrail pass for active report integrity (Rules 9 & 10).
+
+    ONLY messages that pass _is_high_conf_message enter the active section.
+    Messages that pass _is_balanced_partial_message but NOT _is_high_conf_message
+    are counted as partial-only slip-throughs and blocked here.  The caller
+    routes them to the partial appendix via the low_conf pipeline instead.
+    """
     stats = {
         "removed_missing_cid": 0,
         "removed_bad_role": 0,
         "removed_bad_time": 0,
         "removed_garbage": 0,
+        "removed_partial_only": 0,  # Rule 9/10 gate
         "removed_duplicates": 0,
         "kept": 0,
     }
@@ -741,11 +837,11 @@ def _validate_chatgpt_active_items(out_items: list) -> tuple[list, dict]:
     clean = []
     valid_roles = {"user", "assistant", "tool", "system"}
     for it in out_items:
-        cid = (it.get("conversation_id") or "").strip()
-        pl = it.get("payload") or {}
+        cid  = (it.get("conversation_id") or "").strip()
+        pl   = it.get("payload") or {}
         role = (pl.get("role") or "").strip().lower()
         snip = (pl.get("snippet") or "").strip()
-        ts = float(it.get("update_time") or 0)
+        ts   = float(it.get("update_time") or 0)
         if not cid:
             stats["removed_missing_cid"] += 1
             continue
@@ -755,10 +851,18 @@ def _validate_chatgpt_active_items(out_items: list) -> tuple[list, dict]:
         if ts < 1e9:
             stats["removed_bad_time"] += 1
             continue
+        # Rules 9 & 10 — accuracy over completeness:
+        # Partial-quality text must NOT enter the active section.
         if not _is_high_conf_message(snip):
-            stats["removed_garbage"] += 1
+            if _is_balanced_partial_message(snip):
+                stats["removed_partial_only"] += 1
+            else:
+                stats["removed_garbage"] += 1
             continue
-        dedup_key = f"{cid}|{role}|{round(ts)}|{hashlib.md5(snip[:300].encode('utf-8', errors='ignore')).hexdigest()}"
+        dedup_key = (
+            f"{cid}|{role}|{round(ts)}|"
+            f"{hashlib.md5(snip[:300].encode('utf-8', errors='ignore')).hexdigest()}"
+        )
         if dedup_key in seen:
             stats["removed_duplicates"] += 1
             continue
@@ -1027,24 +1131,50 @@ def run_chatgpt(paths: dict):
             or item.get("latest_update")
             or 0
         )
-        out = []
+        icid  = item.get("conversation_id", "")
+        ititle = item.get("title", "")
+        raw_out = []
         for m in (item.get("messages") or []):
             snip = (m.get("snippet") or m.get("text") or "").strip()
             snip = _trim_glued_forensic_snippet(snip)
             role = (m.get("role") or "unknown").lower().strip()
             mts = float(m.get("timestamp") or m.get("update_time") or ts)
             if role not in {"user", "assistant", "tool", "system"}:
-                add_low_conf(source, "invalid_role", item.get("conversation_id", ""), item.get("title", ""), snip, role, mts)
+                add_low_conf(source, "invalid_role", icid, ititle, snip, role, mts)
                 continue
             if not _is_high_conf_message(snip):
-                add_low_conf(source, "garbage_or_low_conf", item.get("conversation_id", ""), item.get("title", ""), snip, role, mts)
+                add_low_conf(source, "garbage_or_low_conf", icid, ititle, snip, role, mts)
                 continue
-            out.append({
-                "mid": (m.get("message_id") or m.get("id") or ""),
-                "role": role,
+            raw_out.append({
+                "mid":     (m.get("message_id") or m.get("id") or ""),
+                "role":    role,
                 "snippet": snip[:4000],
-                "ts": mts,
+                "ts":      mts,
             })
+
+        # ── Rule 7: assistant-reply guard ────────────────────────────────
+        # An assistant turn that shares zero word-overlap with ANY preceding
+        # user turn (within a 3-turn window) is unrelated — route to partial.
+        raw_out.sort(key=lambda x: x.get("ts", 0))
+        out = []
+        for i, msg in enumerate(raw_out):
+            if msg["role"] == "assistant":
+                preceding_user = [
+                    raw_out[j]["snippet"]
+                    for j in range(max(0, i - 3), i)
+                    if raw_out[j]["role"] == "user"
+                ]
+                if preceding_user:
+                    asst_words = _word_set(msg["snippet"])
+                    user_words = _word_set(" ".join(preceding_user))
+                    if asst_words and user_words and _jaccard(asst_words, user_words) == 0.0:
+                        add_low_conf(
+                            source, "no_user_context_overlap",
+                            icid, ititle,
+                            msg["snippet"], msg["role"], msg["ts"],
+                        )
+                        continue
+            out.append(msg)
         return out
 
     print("  [1/3] Full LevelDB + Cache scan (live) …")
@@ -1144,7 +1274,23 @@ def run_chatgpt(paths: dict):
     else:
         print("      → No WAL log files found")
 
-    convs = _merge_chatgpt_convs_by_uuid(convs, SKIP)
+    convs, drifted_records = _merge_chatgpt_convs_by_uuid(convs, SKIP)
+
+    # Route topic-drift records to low_conf / partial appendix (Rules 1-3)
+    for drift_rec in drifted_records:
+        cid   = drift_rec.get("cid", "")
+        title = drift_rec.get("title", "")
+        sim   = drift_rec.get("_drift_similarity", 0.0)
+        for m in drift_rec.get("msgs", []):
+            add_low_conf(
+                "drift_split",
+                f"topic_drift_detected(sim={sim:.2f})",
+                cid, title,
+                m.get("snippet", ""), m.get("role", ""),
+                float(m.get("ts") or 0),
+            )
+    if drifted_records:
+        print(f"      → {len(drifted_records)} drift-split records routed to partial appendix")
 
     # ── Build output ────────────────────────────────────────────
     print("      Building report …")
@@ -1153,10 +1299,16 @@ def run_chatgpt(paths: dict):
     out_items = []
     for conv in clist:
         cid = conv["cid"]
-        title = conv["title"]
+        msgs_sorted = sorted(conv["msgs"], key=lambda m: m.get("ts", 0))
         ts = float(conv["ts"] or 0)
-        msgs = sorted(conv["msgs"], key=lambda m: m.get("ts", 0))
-        for m in msgs:
+
+        # Rule 4 — validate title against dominant topic (no visible label)
+        inferred_title, _ = _infer_dominant_title(
+            msgs_sorted, conv.get("title") or ""
+        )
+        title = inferred_title or conv.get("title") or "(untitled)"
+
+        for m in msgs_sorted:
             out_items.append({
                 "conversation_id": cid, "current_node_id": m["mid"],
                 "title": title, "model": "",
@@ -1176,9 +1328,13 @@ def run_chatgpt(paths: dict):
         metadata_convs, partial_convs
     )
     print(
-        f"      Active validation: kept={val_stats['kept']} removed_missing_cid={val_stats['removed_missing_cid']} "
-        f"removed_bad_role={val_stats['removed_bad_role']} removed_bad_time={val_stats['removed_bad_time']} "
-        f"removed_garbage={val_stats['removed_garbage']} removed_duplicates={val_stats['removed_duplicates']}"
+        f"      Active validation: kept={val_stats['kept']} "
+        f"removed_missing_cid={val_stats['removed_missing_cid']} "
+        f"removed_bad_role={val_stats['removed_bad_role']} "
+        f"removed_bad_time={val_stats['removed_bad_time']} "
+        f"removed_garbage={val_stats['removed_garbage']} "
+        f"removed_partial_only={val_stats['removed_partial_only']} "
+        f"removed_duplicates={val_stats['removed_duplicates']}"
     )
     print(
         f"      Partial appendix: conversations={partial_stats['included_conversations']} "
@@ -1642,6 +1798,7 @@ def _write_report(
             lines.append(f"\n## {title}\n\n")
             lines.append(f"**Last updated (IST):** {ts_ist(ts)}  \n")
             lines.append(f"**Conversation ID:** `{cid}`\n\n")
+
             for item in sorted(real_msgs, key=lambda x: float(x.get("update_time", 0))):
                 snip = item["payload"]["snippet"]
                 role = (item["payload"].get("role") or "unknown").upper()
