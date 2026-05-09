@@ -189,6 +189,7 @@ def _postprocess_chatgpt_report(
     md_text: str,
     partial_convs: list | None = None,
     metadata_convs: list | None = None,
+    detected_deleted: list | None = None,
 ) -> tuple[str, dict]:
     """
     Clean chatgpt report:
@@ -304,31 +305,49 @@ def _postprocess_chatgpt_report(
             out_lines.append(f"  - Last updated (IST): {lu}\n")
         stats["metadata_conversations"] = len(metadata_convs)
 
-    if deleted:
+    # Merge all sources of deleted evidence into one appendix
+    detected_deleted = detected_deleted or []
+    # Build a unified deleted entries list (from blocks + detected scan)
+    all_deleted_entries = []
+    seen_del_cids: set = set()
+
+    for b in deleted:
+        cid = b.get("cid") or ""
+        title = b.get("title") or "(untitled)"
+        lu = b.get("last_updated") or "Unknown"
+        if cid not in seen_del_cids:
+            seen_del_cids.add(cid)
+            all_deleted_entries.append({"title": title, "cid": cid, "last_updated": lu})
+
+    # CIDs flagged via manual/evidence list but not in the main body
+    for cid in sorted(deleted_cids):
+        if cid not in seen_del_cids:
+            seen_del_cids.add(cid)
+            all_deleted_entries.append({"title": "(deleted — metadata only)", "cid": cid, "last_updated": "Unknown"})
+
+    # Freshly detected deletions from LDB diff
+    for d in detected_deleted:
+        cid = (d.get("conversation_id") or "").strip()
+        title = (d.get("title") or "(untitled)").strip()
+        ts = float(d.get("update_time") or 0)
+        lu = ts_ist(ts) if ts > 1e9 else "Unknown"
+        if cid and cid not in seen_del_cids:
+            seen_del_cids.add(cid)
+            all_deleted_entries.append({"title": title, "cid": cid, "last_updated": lu, "_detected": True})
+
+    if all_deleted_entries:
         out_lines.append("\n\n---\n\n")
         out_lines.append("## Appendix: Deleted Conversations (Metadata / Evidence)\n\n")
         out_lines.append(
-            "Conversations listed here were marked as deleted/tombstoned by evidence "
-            "or manual deleted-CID mapping. They are separated from active report content.\n\n"
+            "Conversations listed here were identified as deleted via evidence artifacts, "
+            "manual CID mapping, or by comparing the current sidebar against historical "
+            "LevelDB records. They are separated from active report content.\n\n"
         )
-        for b in deleted:
-            title = b.get("title") or "(untitled)"
-            cid = b.get("cid") or ""
-            lu = b.get("last_updated") or "Unknown"
-            out_lines.append(f"- **{title}**  \n")
-            out_lines.append(f"  - Conversation ID: `{cid}`  \n")
-            out_lines.append(f"  - Last updated (IST): {lu}\n")
-    elif deleted_cids:
-        out_lines.append("\n\n---\n\n")
-        out_lines.append("## Appendix: Deleted Conversations (Metadata / Evidence)\n\n")
-        out_lines.append(
-            "Deleted CIDs were provided via evidence/manual mapping but did not appear "
-            "in active high-confidence reconstruction in this run.\n\n"
-        )
-        for cid in sorted(deleted_cids):
-            out_lines.append("- **(deleted conversation — metadata only)**  \n")
-            out_lines.append(f"  - Conversation ID: `{cid}`  \n")
-            out_lines.append("  - Last updated (IST): Unknown\n")
+        for e in all_deleted_entries:
+            tag = " *(detected via LDB diff)*" if e.get("_detected") else ""
+            out_lines.append(f"- **{e['title']}**{tag}  \n")
+            out_lines.append(f"  - Conversation ID: `{e['cid']}`  \n")
+            out_lines.append(f"  - Last updated (IST): {e['last_updated']}\n")
 
     stats["kept"] = len(kept)
     return "".join(out_lines), stats
@@ -753,6 +772,112 @@ def _ls_conversation_history(ls_dir: str) -> list:
         if cid not in seen or r["update_time"] > seen[cid]["update_time"]:
             seen[cid] = r
     return list(seen.values())
+
+
+def _scan_for_deleted_conversations(ls_dir: str, active_cids: set) -> list:
+    """
+    Detect recently deleted ChatGPT conversations by diffing:
+      - Current sidebar → from the newest .log (WAL) file that contains a
+        conversation-history entry  (= what the app shows NOW)
+      - Historical sidebar → from .ldb SSTables  (= what was there before)
+
+    CIDs present in .ldb history but absent from the current .log sidebar
+    AND absent from the active message set → deletion candidates.
+
+    Returns list of {conversation_id, title, update_time} dicts.
+    """
+    pat = re.compile(
+        r'conversation-history[^\{]{0,40}(\{"value":\{"pages":\[)')
+
+    def _extract_from_file(fpath: str) -> list:
+        results = []
+        raw = _safe_read(fpath)
+        if not raw:
+            return results
+        text = raw.decode("utf-8", errors="replace")
+        for m in pat.finditer(text):
+            start = m.start(1)
+            depth, end = 0, start
+            for i in range(start, min(start + 800_000, len(text))):
+                ch = text[i]
+                if ch == "{":
+                    depth += 1
+                elif ch == "}":
+                    depth -= 1
+                if depth == 0:
+                    end = i + 1
+                    break
+            if end <= start:
+                continue
+            try:
+                payload = json.loads(text[start:end])
+            except Exception:
+                continue
+            pages = (payload.get("value") or payload).get("pages", [])
+            for page in pages:
+                for item in (page.get("items") or []):
+                    if not isinstance(item, dict):
+                        continue
+                    cid = (item.get("id") or "").strip()
+                    title = (item.get("title") or "").strip()
+                    ts = 0.0
+                    for ts_str in (item.get("update_time", ""), item.get("create_time", "")):
+                        if ts_str:
+                            try:
+                                ts = datetime.fromisoformat(
+                                    ts_str.replace("Z", "+00:00")).timestamp()
+                                break
+                            except Exception:
+                                pass
+                    if cid:
+                        results.append({"conversation_id": cid, "title": title, "update_time": ts})
+        return results
+
+    # All LDB files sorted newest → oldest by modification time
+    all_files = sorted(
+        glob.glob(os.path.join(ls_dir, "*.log")) +
+        glob.glob(os.path.join(ls_dir, "*.ldb")),
+        key=os.path.getmtime, reverse=True,
+    )
+
+    # Current sidebar = first file (newest mtime) that contains a conversation-history.
+    # That file represents the most recent LevelDB state.
+    current_cids: set = set()
+    current_file: str = ""
+    for f in all_files:
+        entries = _extract_from_file(f)
+        if entries:
+            current_cids.update(e["conversation_id"] for e in entries)
+            current_file = f
+            break
+
+    if not current_cids:
+        return []   # can't determine current state → skip
+
+    # Historical CIDs from all OTHER files (older than current_file)
+    historical_map: dict = {}
+    for f in all_files:
+        if f == current_file:
+            continue
+        for e in _extract_from_file(f):
+            cid = e["conversation_id"]
+            if cid not in historical_map or e["update_time"] > historical_map[cid]["update_time"]:
+                historical_map[cid] = e
+
+    # Deletion candidates: in .ldb history, not in current sidebar, not active
+    deleted = []
+    for cid, entry in historical_map.items():
+        if cid in current_cids or cid in active_cids:
+            continue
+        title = entry.get("title", "")
+        if not title or title.lower() in {"new chat", ""}:
+            continue
+        if _looks_forensic_fragment(title):
+            continue
+        deleted.append(entry)
+
+    deleted.sort(key=lambda x: float(x.get("update_time") or 0), reverse=True)
+    return deleted
 
 
 def _write_chatgpt_low_conf_archive(items: list):
@@ -1222,8 +1347,21 @@ def run_chatgpt(paths: dict):
                     "msgs": [],
                 }
         print(f"      → {len(ch)} LS entries, {applied} timestamps corrected")
+
+        # ── Deleted conversation detection ────────────────────────────────
+        # Compare current sidebar (.log WAL) vs historical SSTables (.ldb).
+        # CIDs missing from the current sidebar are deletion candidates.
+        active_cids_now = {(c.get("cid") or "").strip() for c in convs.values() if c.get("msgs")}
+        detected_deleted = _scan_for_deleted_conversations(ls_dir, active_cids_now)
+        if detected_deleted:
+            print(f"      → {len(detected_deleted)} recently deleted conversations detected:")
+            for d in detected_deleted:
+                print(f"           · {d.get('title','?')} ({d.get('conversation_id','?')[:8]}…)")
+        else:
+            print("      → No deletion gap detected in LDB artifacts")
     else:
         print("      → Local Storage not found")
+        detected_deleted = []
 
     old_file = os.path.join(REPORTS, "RECOVERED_CHATGPT_GROUPED.json")
     if os.path.isfile(old_file):
@@ -1344,12 +1482,16 @@ def run_chatgpt(paths: dict):
     )
     print(f"      Prior reconstruction promotions: {promoted_count} conversations")
     print(f"      Metadata-only appendix: conversations={len(metadata_convs)}")
+    if not os.path.isdir(paths.get("ls_ldb", "")):
+        detected_deleted = []
+    print(f"      Detected deleted (LDB diff): {len(detected_deleted)} conversations")
     _write_report(
         "CHATGPT",
         chatgpt_cids,
         out_report,
         chatgpt_partial_convs=partial_convs,
         chatgpt_metadata_convs=metadata_convs,
+        chatgpt_detected_deleted=detected_deleted,
     )
     jpath, mpath, arc_count = _write_chatgpt_low_conf_archive(low_conf)
     print(f"      Low-confidence archive: {arc_count} items")
@@ -1818,6 +1960,7 @@ def _write_report(
     is_claude: bool = False,
     chatgpt_partial_convs: list | None = None,
     chatgpt_metadata_convs: list | None = None,
+    chatgpt_detected_deleted: list | None = None,
 ):
     now = ts_ist(datetime.utcnow().timestamp())
     total_convs = len(clist)
@@ -1917,6 +2060,7 @@ def _write_report(
             report_text,
             partial_convs=(chatgpt_partial_convs or []),
             metadata_convs=(chatgpt_metadata_convs or []),
+            detected_deleted=(chatgpt_detected_deleted or []),
         )
         cleaned = _sync_chatgpt_header_counts(cleaned)
         with open(md_path, "w", encoding="utf-8", newline="\n") as f:

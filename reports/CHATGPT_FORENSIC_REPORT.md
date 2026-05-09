@@ -1,6 +1,6 @@
 # CHATGPT Forensic Extraction Report
 
-**Generated:** 2026-05-09 10:48:29 IST  
+**Generated:** 2026-05-09 11:17:26 IST  
 **App:** CHATGPT  
 **Conversations:** 17  
 **Messages with content:** 102  
@@ -32850,8 +32850,8 @@ Conversations detected from local sidebar/history metadata but without clean rec
 
 ## Appendix: Deleted Conversations (Metadata / Evidence)
 
-Deleted CIDs were provided via evidence/manual mapping but did not appear in active high-confidence reconstruction in this run.
+Conversations listed here were identified as deleted via evidence artifacts, manual CID mapping, or by comparing the current sidebar against historical LevelDB records. They are separated from active report content.
 
-- **(deleted conversation — metadata only)**  
+- **(deleted — metadata only)**  
   - Conversation ID: `c3e748e0-c88d-490f-a7be-3b676e60cea7`  
   - Last updated (IST): Unknown
