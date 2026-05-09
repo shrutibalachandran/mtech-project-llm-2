@@ -4,6 +4,7 @@
 **App:** CHATGPT  
 **Conversations:** 3  
 **Messages with content:** 104  
+
 ---
 
 
@@ -3698,14 +3699,3 @@ y_1, y_2 \ge 0
 If you want, I can also **solve the dual**, show **primal–dual relationship**, or explain the conversion with a simple table.
 
 ---
-
-
----
-
-## Appendix: Deleted Conversations (Metadata / Evidence)
-
-Deleted CIDs were provided via evidence/manual mapping but did not appear in active high-confidence reconstruction in this run.
-
-- **(deleted conversation — metadata only)**  
-  - Conversation ID: `c3e748e0-c88d-490f-a7be-3b676e60cea7`  
-  - Last updated (IST): Unknown

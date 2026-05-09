@@ -85,22 +85,286 @@ def _header(title: str):
     print(f"  {title}")
     _sep("═")
 
+
+def _load_deleted_cids() -> set:
+    cids: set = set()
+    # Evidence extractor output
+    jpath = os.path.join(REPORTS, "DELETED_METADATA_EXTRACT.json")
+    try:
+        if os.path.isfile(jpath):
+            data = json.load(open(jpath, encoding="utf-8"))
+            res = data.get("results") or {}
+            for key in ("chatgpt", "claude"):
+                for r in (res.get(key) or []):
+                    cid = (r.get("conversation_id") or "").strip()
+                    if cid:
+                        cids.add(cid)
+    except Exception:
+        pass
+
+    # Optional manual list
+    mpath = os.path.join(REPORTS, "DELETED_CIDS_MANUAL.txt")
+    try:
+        if os.path.isfile(mpath):
+            for ln in open(mpath, encoding="utf-8"):
+                s = ln.strip()
+                if not s or s.startswith("#"):
+                    continue
+                cids.add(s)
+    except Exception:
+        pass
+    return cids
+
+
+def _split_report_blocks(md_text: str) -> tuple[list[str], list[dict]]:
+    """
+    Split markdown into:
+      - prefix lines before first conversation block
+      - list of conversation blocks with parsed metadata
+    """
+    lines = md_text.splitlines(keepends=True)
+    n = len(lines)
+
+    def is_conv_header(i: int) -> bool:
+        if i < 0 or i >= n or not lines[i].startswith("## "):
+            return False
+        look = "".join(lines[i + 1: min(n, i + 14)])
+        return ("**Last updated (IST):**" in look) and ("**Conversation ID:**" in look)
+
+    starts = [i for i in range(n) if is_conv_header(i)]
+    if not starts:
+        return lines, []
+
+    prefix = lines[:starts[0]]
+    blocks = []
+    for idx, s in enumerate(starts):
+        e = starts[idx + 1] if idx + 1 < len(starts) else n
+        block_lines = lines[s:e]
+        block_text = "".join(block_lines)
+        title = lines[s][3:].strip()
+        cid = ""
+        last_updated = ""
+        first_assistant = ""
+        roles = []
+        for k, ln in enumerate(block_lines):
+            t = ln.strip()
+            if t.startswith("**Last updated (IST):**"):
+                last_updated = t.replace("**Last updated (IST):**", "").strip()
+            if t.startswith("**Conversation ID:**") and "`" in t:
+                parts = t.split("`")
+                if len(parts) >= 3:
+                    cid = parts[1].strip()
+            if t.startswith("**[") and "] USER:**" in t:
+                roles.append("USER")
+            elif t.startswith("**[") and "] ASSISTANT:**" in t:
+                roles.append("ASSISTANT")
+                if not first_assistant:
+                    # next non-empty line as snippet seed
+                    for p in block_lines[k + 1:]:
+                        ps = p.strip()
+                        if ps and not ps.startswith("**["):
+                            first_assistant = ps
+                            break
+            elif t.startswith("**[") and "] TOOL:**" in t:
+                roles.append("TOOL")
+        blocks.append({
+            "lines": block_lines,
+            "text": block_text,
+            "title": title,
+            "cid": cid,
+            "last_updated": last_updated,
+            "roles": roles,
+            "first_assistant": first_assistant,
+        })
+    return prefix, blocks
+
+
+def _normalize_sig_text(s: str) -> str:
+    s = (s or "").lower().strip()
+    s = re.sub(r"\s+", " ", s)
+    return s
+
+
+def _postprocess_chatgpt_report(md_text: str) -> tuple[str, dict]:
+    """
+    Clean chatgpt report:
+      - remove unknown/low-quality blocks
+      - remove duplicate CIDs
+      - remove duplicate conversation clones (same title + first assistant seed)
+      - move deleted CIDs into dedicated appendix section
+    """
+    prefix, blocks = _split_report_blocks(md_text)
+    deleted_cids = _load_deleted_cids()
+
+    kept = []
+    deleted = []
+    seen_cid: set = set()
+    seen_sig: set = set()
+    stats = {
+        "removed_unknown": 0,
+        "removed_dup_cid": 0,
+        "removed_dup_clone": 0,
+        "moved_deleted": 0,
+        "kept": 0,
+    }
+
+    for b in blocks:
+        cid = b.get("cid", "")
+        title = b.get("title", "")
+        last_updated = (b.get("last_updated") or "").lower()
+
+        # Unknown/noisy blocks
+        if "unknown" in last_updated or "**[Unknown] " in b["text"]:
+            stats["removed_unknown"] += 1
+            continue
+
+        # Move deleted to appendix
+        title_l = title.lower()
+        looks_deleted = (
+            cid in deleted_cids
+            or "deleted" in title_l
+            or "orphaned" in title_l
+            or "unknown (deleted" in title_l
+        )
+        if looks_deleted:
+            deleted.append(b)
+            stats["moved_deleted"] += 1
+            continue
+
+        # Duplicate CIDs
+        if cid and cid in seen_cid:
+            stats["removed_dup_cid"] += 1
+            continue
+        if cid:
+            seen_cid.add(cid)
+
+        # Duplicate conversation clones (conservative)
+        sig = _normalize_sig_text(title) + "|" + _normalize_sig_text(b.get("first_assistant", ""))[:200]
+        if sig.endswith("|"):
+            # no assistant seed; don't dedupe aggressively
+            kept.append(b)
+            continue
+        if sig in seen_sig:
+            stats["removed_dup_clone"] += 1
+            continue
+        seen_sig.add(sig)
+        kept.append(b)
+
+    out_lines = list(prefix)
+    for b in kept:
+        out_lines.extend(b["lines"])
+
+    if deleted:
+        out_lines.append("\n\n---\n\n")
+        out_lines.append("## Appendix: Deleted Conversations (Metadata / Evidence)\n\n")
+        out_lines.append(
+            "Conversations listed here were marked as deleted/tombstoned by evidence "
+            "or manual deleted-CID mapping. They are separated from active report content.\n\n"
+        )
+        for b in deleted:
+            title = b.get("title") or "(untitled)"
+            cid = b.get("cid") or ""
+            lu = b.get("last_updated") or "Unknown"
+            out_lines.append(f"- **{title}**  \n")
+            out_lines.append(f"  - Conversation ID: `{cid}`  \n")
+            out_lines.append(f"  - Last updated (IST): {lu}\n")
+    elif deleted_cids:
+        out_lines.append("\n\n---\n\n")
+        out_lines.append("## Appendix: Deleted Conversations (Metadata / Evidence)\n\n")
+        out_lines.append(
+            "Deleted CIDs were provided via evidence/manual mapping but did not appear "
+            "in active high-confidence reconstruction in this run.\n\n"
+        )
+        for cid in sorted(deleted_cids):
+            out_lines.append("- **(deleted conversation — metadata only)**  \n")
+            out_lines.append(f"  - Conversation ID: `{cid}`  \n")
+            out_lines.append("  - Last updated (IST): Unknown\n")
+
+    stats["kept"] = len(kept)
+    return "".join(out_lines), stats
+
+
+def _sync_chatgpt_header_counts(md_text: str) -> str:
+    """Ensure header counts match final cleaned content."""
+    _, blocks = _split_report_blocks(md_text)
+    conv_count = len(blocks)
+    msg_count = len(re.findall(
+        r'^\*\*\[[^\]]+\]\s+(?:USER|ASSISTANT|TOOL|SYSTEM):\*\*$',
+        md_text,
+        flags=re.M,
+    ))
+    md_text = re.sub(r'^\*\*Conversations:\*\* \d+\s*$', f"**Conversations:** {conv_count}  ", md_text, flags=re.M)
+    md_text = re.sub(r'^\*\*Messages with content:\*\* \d+\s*$', f"**Messages with content:** {msg_count}  ", md_text, flags=re.M)
+    return md_text
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # Noise Filtering
 # ═══════════════════════════════════════════════════════════════════════════════
 
 
 _NOISE = [
-    "[No cached content]", '{"conversation_id"', "}},",
-    '"title":', '"is_archived"', '"mapping"', "current_node_id",
-    "accountUserId", 'id"$', "client-created-root",
-    '"kind":"message"', '"snippet":', "created=20", "updated=20",
-    "og:url", "og:title", "<meta ", "and be more productive",
-    "chatgpt.com_0", '"model":', '"is_do_not', "webRTC",
+    "[No cached content]", '{"conversation_id"', '"conversation_id"',
+    '"current_node_id"', "accountUserId", 'id"$', "client-created-root",
+    "created=20", "updated=20", "chatgpt.com_0",
+    "conversation-history", "indexeddb.leveldb", "MANIFEST-",
+    "Cache_Data", "object store", "Local Storage\\leveldb",
+    "blob 83", "lastUpdate", "startTime", "app-minified", "webRTC",
     "CERTIFICATE", "-----BEGIN",
 ]
-_JSON_RE = re.compile(r'\{["\w]+:')
+_META_JSON_RE = re.compile(
+    r'^\s*\{\s*"(?:conversation_id|current_node_id|mapping|title|value|pages|items|accountUserId)"\s*:',
+    re.I,
+)
 _HTML_RE = re.compile(r'<[a-zA-Z][^>]{0,30}>')
+_UUID_RE = re.compile(r'[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}', re.I)
+
+
+def _replacement_ratio(s: str) -> float:
+    if not s:
+        return 1.0
+    bad = s.count("\ufffd")
+    return bad / max(1, len(s))
+
+
+def _looks_forensic_fragment(s: str) -> bool:
+    t = (s or "").strip()
+    if not t:
+        return True
+    low = t.lower()
+    if any(n.lower() in low for n in _NOISE):
+        return True
+    if _META_JSON_RE.search(t):
+        return True
+    if _replacement_ratio(t) >= 0.03:
+        return True
+    if "conversation-history" in low and _UUID_RE.search(low):
+        return True
+    if re.search(r'^[0-9a-f-]{8,}\s*","starttime":\d{10,}', low):
+        return True
+    if re.search(r'lastupdate"\s*:\s*\d{10,}', low):
+        return True
+    if re.search(r'/(?:conversation-history|backend-api)/', low):
+        return True
+    return False
+
+
+def _is_high_conf_message(s: str) -> bool:
+    s = (s or "").strip()
+    if len(s) < 4:
+        return False
+    if _looks_forensic_fragment(s):
+        return False
+    if _HTML_RE.search(s[:120]):
+        return False
+    if s.startswith("<"):
+        return False
+    letters = sum(
+        1 for c in s if c.isalpha() or unicodedata.category(c).startswith("L")
+    )
+    printable = sum(1 for c in s if c.isprintable() and c not in "\x00\x01\x02\x03\x04")
+    if printable < len(s) * 0.90:
+        return False
+    return letters >= len(s) * 0.18
 
 
 def _trim_glued_forensic_snippet(s: str) -> str:
@@ -168,13 +432,14 @@ def _chatgpt_report_out_items(out_items: list) -> list:
     by_cid: dict = {}
     for x in out_items:
         cid = x.get("conversation_id") or ""
+        if not cid:
+            continue
         by_cid.setdefault(cid, []).append(x)
     out = []
     for _cid, items in by_cid.items():
         real = [
             x for x in items
-            if not (x.get("payload") or {}).get("snippet", "").startswith(
-                "[No content")
+            if _is_high_conf_message((x.get("payload") or {}).get("snippet", ""))
         ]
         if real:
             out.extend(real)
@@ -182,21 +447,8 @@ def _chatgpt_report_out_items(out_items: list) -> list:
 
 
 def is_real(s: str) -> bool:
-    s = s.strip()
-    if not s or len(s) < 2:
-        return False
-    for n in _NOISE:
-        if n in s:
-            return False
-    if _JSON_RE.search(s[:80]) or _HTML_RE.search(s[:120]):
-        return False
-    if s.startswith("<"):
-        return False
-    # Unicode letters (not just ASCII) — avoids dropping Indic/CJK/etc.
-    letters = sum(
-        1 for c in s if c.isalpha() or unicodedata.category(c).startswith("L")
-    )
-    return letters >= len(s) * 0.28
+    # Backward-compatible alias used by Claude path.
+    return _is_high_conf_message(s)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -330,43 +582,176 @@ def _ls_conversation_history(ls_dir: str) -> list:
     return list(seen.values())
 
 
+def _write_chatgpt_low_conf_archive(items: list):
+    """Write quarantined low-confidence records outside active report."""
+    json_path = os.path.join(REPORTS, "CHATGPT_LOW_CONFIDENCE_ARCHIVE.json")
+    md_path = os.path.join(REPORTS, "CHATGPT_LOW_CONFIDENCE_ARCHIVE.md")
+
+    dedup = {}
+    for it in items:
+        cid = (it.get("conversation_id") or "").strip()
+        title = (it.get("title") or "").strip()
+        role = (it.get("role") or "").strip().lower()
+        snip = (it.get("snippet") or "").strip()
+        src = (it.get("source") or "").strip()
+        reason = (it.get("reason") or "").strip()
+        ts = float(it.get("timestamp") or 0)
+        k = hashlib.md5(f"{cid}|{title}|{role}|{snip[:180]}|{src}|{reason}".encode("utf-8", errors="ignore")).hexdigest()
+        if k not in dedup:
+            dedup[k] = {
+                "conversation_id": cid,
+                "title": title,
+                "role": role,
+                "timestamp": ts,
+                "snippet": snip[:4000],
+                "source": src,
+                "reason": reason,
+            }
+
+    out = sorted(dedup.values(), key=lambda x: float(x.get("timestamp") or 0), reverse=True)
+    payload = {
+        "generated_at_ist": ts_ist(time.time()),
+        "count": len(out),
+        "items": out,
+    }
+    with open(json_path, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(payload, f, ensure_ascii=False, indent=2)
+
+    lines = [
+        "# CHATGPT Low Confidence Archive\n\n",
+        f"**Generated:** {ts_ist(time.time())}  \n",
+        f"**Items:** {len(out)}\n\n",
+        "This file stores low-confidence fragments intentionally excluded from active reconstruction.\n\n",
+        "---\n\n",
+    ]
+    for it in out:
+        title = it.get("title") or "(untitled)"
+        cid = it.get("conversation_id") or "(missing)"
+        role = (it.get("role") or "unknown").upper()
+        reason = it.get("reason") or "low-confidence fragment"
+        src = it.get("source") or "unknown"
+        when = ts_ist(float(it.get("timestamp") or 0))
+        lines.append(f"## {title}\n\n")
+        lines.append(f"**Conversation ID:** `{cid}`  \n")
+        lines.append(f"**Reason:** {reason}  \n")
+        lines.append(f"**Source:** `{src}`  \n")
+        lines.append(f"**Timestamp (IST):** {when}\n\n")
+        lines.append(f"**[{when}] {role}:**\n\n{(it.get('snippet') or '').strip()}\n\n")
+        lines.append("---\n\n")
+    with open(md_path, "w", encoding="utf-8", newline="\n") as f:
+        f.writelines(lines)
+    return json_path, md_path, len(out)
+
+
+def _validate_chatgpt_active_items(out_items: list) -> tuple[list, dict]:
+    """Final guardrail pass for active report integrity."""
+    stats = {
+        "removed_missing_cid": 0,
+        "removed_bad_role": 0,
+        "removed_bad_time": 0,
+        "removed_garbage": 0,
+        "removed_duplicates": 0,
+        "kept": 0,
+    }
+    seen: set = set()
+    clean = []
+    valid_roles = {"user", "assistant", "tool", "system"}
+    for it in out_items:
+        cid = (it.get("conversation_id") or "").strip()
+        pl = it.get("payload") or {}
+        role = (pl.get("role") or "").strip().lower()
+        snip = (pl.get("snippet") or "").strip()
+        ts = float(it.get("update_time") or 0)
+        if not cid:
+            stats["removed_missing_cid"] += 1
+            continue
+        if role not in valid_roles:
+            stats["removed_bad_role"] += 1
+            continue
+        if ts < 1e9:
+            stats["removed_bad_time"] += 1
+            continue
+        if not _is_high_conf_message(snip):
+            stats["removed_garbage"] += 1
+            continue
+        dedup_key = f"{cid}|{role}|{round(ts)}|{hashlib.md5(snip[:300].encode('utf-8', errors='ignore')).hexdigest()}"
+        if dedup_key in seen:
+            stats["removed_duplicates"] += 1
+            continue
+        seen.add(dedup_key)
+        clean.append(it)
+    stats["kept"] = len(clean)
+    return clean, stats
+
+
 def run_chatgpt(paths: dict):
     """Full ChatGPT extraction pipeline → single report.
-    Fully portable: works on any machine with ChatGPT Desktop installed.
-    RECOVERED_CHATGPT_GROUPED.json is optionally merged as historical bonus.
+    Strict mode:
+      - active report uses high-confidence CID-bound messages only
+      - low-confidence data (WAL/history/noisy fragments) is archived separately
     """
     _sep("─")
 
     SKIP = {"Unknown (deleted/orphaned conversation)", "New chat", "Student",
             "Test message response", "Testing cache behavior", "Deleted Fragment Recovery", ""}
 
-    convs: dict = {}
+    convs: dict = {}  # keyed strictly by CID
+    low_conf: list = []
 
-    def upsert(cid, title, ts, is_arch, is_star, msgs, trust_ts=True):
-        key = cid if cid else title[:40]
-        if not key:
+    def add_low_conf(source: str, reason: str, cid: str, title: str, snip: str, role: str = "", ts: float = 0.0):
+        sn = (snip or "").strip()
+        if not sn:
             return
+        low_conf.append({
+            "source": source,
+            "reason": reason,
+            "conversation_id": cid or "",
+            "title": title or "",
+            "role": role or "unknown",
+            "timestamp": float(ts or 0.0),
+            "snippet": sn[:4000],
+        })
+
+    def upsert_active(cid, title, ts, is_arch, is_star, msgs, trust_ts=True):
+        if not cid:
+            for m in msgs:
+                add_low_conf("live", "missing_cid", "", title, m.get("snippet", ""), m.get("role", ""), m.get("ts", ts))
+            return
+        key = cid.strip().lower()
         prev = convs.get(key)
         if prev is None:
-            convs[key] = {"cid": cid, "title": title, "ts": ts,
+            convs[key] = {"cid": cid.strip(), "title": title, "ts": ts,
                           "is_archived": is_arch, "is_starred": is_star,
                           "msgs": list(msgs)}
             return
         if cid and not prev["cid"]:
-            prev["cid"] = cid
+            prev["cid"] = cid.strip()
         if title and title not in SKIP:
-            prev["title"] = title
+            if not prev["title"] or prev["title"] in SKIP:
+                prev["title"] = title
         if trust_ts and ts > float(prev["ts"] or 0) and ts < 1_773_902_000:
             prev["ts"] = ts
         prev["is_archived"] = is_arch or prev["is_archived"]
         prev["is_starred"] = is_star or prev["is_starred"]
-        seen = {m["snippet"][:100] for m in prev["msgs"]}
+        seen = {
+            hashlib.md5(
+                f"{(m.get('role') or '').lower()}|{(m.get('snippet') or '').strip()[:250]}|{round(float(m.get('ts') or 0))}".encode(
+                    "utf-8", errors="ignore"
+                )
+            ).hexdigest()
+            for m in prev["msgs"]
+        }
         for m in msgs:
-            if m["snippet"][:100] not in seen:
+            mk = hashlib.md5(
+                f"{(m.get('role') or '').lower()}|{(m.get('snippet') or '').strip()[:250]}|{round(float(m.get('ts') or 0))}".encode(
+                    "utf-8", errors="ignore"
+                )
+            ).hexdigest()
+            if mk not in seen:
                 prev["msgs"].append(m)
-                seen.add(m["snippet"][:100])
+                seen.add(mk)
 
-    def conv_to_msgs(item):
+    def conv_to_msgs(item, source: str):
         ts = float(
             item.get("update_time")
             or item.get("latest_update")
@@ -376,11 +761,20 @@ def run_chatgpt(paths: dict):
         for m in (item.get("messages") or []):
             snip = (m.get("snippet") or m.get("text") or "").strip()
             snip = _trim_glued_forensic_snippet(snip)
-            if is_real(snip):
-                out.append({"mid":     (m.get("message_id") or m.get("id") or ""),
-                            "role":    (m.get("role") or "unknown").lower(),
-                            "snippet": snip[:4000],
-                            "ts":      float(m.get("timestamp") or m.get("update_time") or ts)})
+            role = (m.get("role") or "unknown").lower().strip()
+            mts = float(m.get("timestamp") or m.get("update_time") or ts)
+            if role not in {"user", "assistant", "tool", "system"}:
+                add_low_conf(source, "invalid_role", item.get("conversation_id", ""), item.get("title", ""), snip, role, mts)
+                continue
+            if not _is_high_conf_message(snip):
+                add_low_conf(source, "garbage_or_low_conf", item.get("conversation_id", ""), item.get("title", ""), snip, role, mts)
+                continue
+            out.append({
+                "mid": (m.get("message_id") or m.get("id") or ""),
+                "role": role,
+                "snippet": snip[:4000],
+                "ts": mts,
+            })
         return out
 
     print("  [1/3] Full LevelDB + Cache scan (live) …")
@@ -393,10 +787,12 @@ def run_chatgpt(paths: dict):
             if title in SKIP:
                 continue
             ts = float(item.get("update_time") or 0)
-            msgs = conv_to_msgs(item)
-            upsert(cid, title, ts,
-                   bool(item.get("is_archived")), bool(item.get("is_starred")),
-                   msgs, trust_ts=True)
+            msgs = conv_to_msgs(item, "live_cache_ldb")
+            upsert_active(
+                cid, title, ts,
+                bool(item.get("is_archived")), bool(item.get("is_starred")),
+                msgs, trust_ts=True
+            )
         print(f"      → {len(live_convs)} live conversations found")
         print(f"      → {len(convs)} unique after dedup")
     except Exception as e:
@@ -411,45 +807,45 @@ def run_chatgpt(paths: dict):
             ecid = entry.get("conversation_id", "")
             etitle = entry.get("title", "")
             ets = float(entry.get("update_time") or 0)
-            key = ecid if ecid else etitle[:40]
-            if key in convs and ets > 1e9:
-                convs[key]["ts"] = ets
+            if ecid and ecid.lower() in convs and ets > 1e9:
+                convs[ecid.lower()]["ts"] = ets
                 if etitle:
-                    convs[key]["title"] = etitle
+                    convs[ecid.lower()]["title"] = etitle
                 applied += 1
+            elif ecid and ets > 1e9:
+                # metadata-only shell kept for CID correctness if messages arrive later
+                convs[ecid.lower()] = {
+                    "cid": ecid, "title": etitle, "ts": ets,
+                    "is_archived": bool(entry.get("is_archived")),
+                    "is_starred": bool(entry.get("is_starred")),
+                    "msgs": [],
+                }
         print(f"      → {len(ch)} LS entries, {applied} timestamps corrected")
     else:
         print("      → Local Storage not found")
 
     old_file = os.path.join(REPORTS, "RECOVERED_CHATGPT_GROUPED.json")
     if os.path.isfile(old_file):
-        print("  [3/4] Merging historical data (RECOVERED_CHATGPT_GROUPED.json) …")
+        print("  [3/4] Archiving historical recovered data (excluded from active) …")
         try:
             old_raw = json.load(open(old_file, encoding="utf-8"))
             old_items = old_raw if isinstance(
                 old_raw, list) else old_raw.get("items", [])
-            pre = len(convs)
             for item in old_items:
                 cid = (item.get("conversation_id") or "").strip()
                 title = (item.get("title") or "").strip()
                 if title in SKIP:
                     continue
-                ts = float(item.get("latest_update")
-                           or item.get("update_time") or 0)
-                msgs = conv_to_msgs(item)
-                upsert(cid, title, ts,
-                       bool(item.get("is_archived")), bool(
-                           item.get("is_starred")),
-                       msgs, trust_ts=(ts < 1_773_901_000))
-            added = len(convs) - pre
-            print(
-                f"      → {len(old_items)} records, {added} new conversations added from history")
+                ts = float(item.get("latest_update") or item.get("update_time") or 0)
+                for m in conv_to_msgs(item, "historical_file"):
+                    add_low_conf("historical_file", "historical_not_active", cid, title, m.get("snippet", ""), m.get("role", ""), float(m.get("ts") or ts))
+            print(f"      → {len(old_items)} records moved to low-confidence archive")
         except Exception as e:
             print(f"      [warn] Historical merge failed: {e}")
     else:
-        print("  [3/4] No historical file — running in portable (live-only) mode")
+        print("  [3/4] No historical file — running strict live-only active mode")
 
-    print("  [4/4] Scanning LevelDB logs (WAL) for very latest chats …")
+    print("  [4/4] Scanning LevelDB logs (WAL) to quarantine weak fragments …")
     wal_files = glob.glob(os.path.join(ls_dir, "*.log"))
     if wal_files:
         found_wal = 0
@@ -465,62 +861,53 @@ def run_chatgpt(paths: dict):
                 # Carve latest readable strings
                 runs = re.findall(r'[A-Za-z][^\x00-\x1f]{20,3000}', window)
                 for run in runs:
-                    if is_real(run) and len(run) >= 35:
-                        key = cid
-                        if key in convs:
-                            seen = {m["snippet"][:100]
-                                    for m in convs[key]["msgs"]}
-                            if run[:100] not in seen:
-                                # Guess role
-                                role = "assistant"
-                                if "user" in window[max(0, window.find(run)-100): window.find(run)]:
-                                    role = "user"
-                                convs[key]["msgs"].append({
-                                    "mid": "", "role": role, "snippet": run[:4000], "ts": time.time()
-                                })
-                                found_wal += 1
-                                break
+                    role = "assistant"
+                    if "user" in window[max(0, window.find(run)-100): window.find(run)].lower():
+                        role = "user"
+                    if _is_high_conf_message(run) and len(run) >= 35:
+                        add_low_conf("wal_log", "wal_untrusted_for_active", cid, "", run[:4000], role, time.time())
+                        found_wal += 1
+                        break
         if found_wal:
-            print(
-                f"      → {found_wal} 'live' snippets recovered from WAL logs")
+            print(f"      → {found_wal} snippets quarantined from WAL logs")
     else:
-        print("      → No WAL log files found to carve")
+        print("      → No WAL log files found")
 
     convs = _merge_chatgpt_convs_by_uuid(convs, SKIP)
 
     # ── Build output ────────────────────────────────────────────
     print("      Building report …")
-    clist = sorted(convs.values(), key=lambda c: float(
-        c["ts"] or 0), reverse=True)
+    clist = [c for c in convs.values() if (c.get("cid") or "").strip()]
+    clist = sorted(clist, key=lambda c: float(c["ts"] or 0), reverse=True)
     out_items = []
     for conv in clist:
         cid = conv["cid"]
         title = conv["title"]
         ts = float(conv["ts"] or 0)
         msgs = sorted(conv["msgs"], key=lambda m: m.get("ts", 0))
-        if not msgs:
+        for m in msgs:
             out_items.append({
-                "conversation_id": cid, "current_node_id": "",
+                "conversation_id": cid, "current_node_id": m["mid"],
                 "title": title, "model": "",
                 "is_archived": conv["is_archived"], "is_starred": conv["is_starred"],
                 "update_time": ts,
-                "payload": {"kind": "message", "message_id": "",
-                            "snippet": "[No content recovered — metadata only]", "role": ""}
+                "payload": {"kind": "message", "message_id": m["mid"],
+                            "snippet": m["snippet"], "role": m["role"]}
             })
-        else:
-            for m in msgs:
-                out_items.append({
-                    "conversation_id": cid, "current_node_id": m["mid"],
-                    "title": title, "model": "",
-                    "is_archived": conv["is_archived"], "is_starred": conv["is_starred"],
-                    "update_time": ts,
-                    "payload": {"kind": "message", "message_id": m["mid"],
-                                "snippet": m["snippet"], "role": m["role"]}
-                })
 
     out_report = _chatgpt_report_out_items(out_items)
-    chatgpt_cids = sorted({x["conversation_id"] for x in out_report})
+    out_report, val_stats = _validate_chatgpt_active_items(out_report)
+    chatgpt_cids = sorted({x["conversation_id"] for x in out_report if x.get("conversation_id")})
+    print(
+        f"      Active validation: kept={val_stats['kept']} removed_missing_cid={val_stats['removed_missing_cid']} "
+        f"removed_bad_role={val_stats['removed_bad_role']} removed_bad_time={val_stats['removed_bad_time']} "
+        f"removed_garbage={val_stats['removed_garbage']} removed_duplicates={val_stats['removed_duplicates']}"
+    )
     _write_report("CHATGPT", chatgpt_cids, out_report)
+    jpath, mpath, arc_count = _write_chatgpt_low_conf_archive(low_conf)
+    print(f"      Low-confidence archive: {arc_count} items")
+    print(f"      Archive JSON → {jpath}")
+    print(f"      Archive MD   → {mpath}")
 
 
 def _scan_claude_idb_blob(paths: dict) -> list:
@@ -920,6 +1307,7 @@ def _write_report(app: str, clist, out_items: list, is_claude: bool = False):
                        if not x["payload"]["snippet"].startswith("[No content"))
 
     md_path = os.path.join(REPORTS, f"{app}_FORENSIC_REPORT.md")
+    raw_path = os.path.join(REPORTS, f"{app}_FORENSIC_REPORT_RAW.md")
 
     # ── Markdown report ───────────────────────────────────────────────────
     # Group items by conversation_id for readable report
@@ -982,8 +1370,26 @@ def _write_report(app: str, clist, out_items: list, is_claude: bool = False):
                 lines.append(f"**[{mt}] {role}:**\n\n{snip}\n\n")
         lines.append("---\n")
 
-    with open(md_path, "w", encoding="utf-8") as f:
-        f.writelines(lines)
+    report_text = "".join(lines)
+    if app == "CHATGPT":
+        # Raw backup first (for traceability).
+        with open(raw_path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(report_text)
+
+        cleaned, st = _postprocess_chatgpt_report(report_text)
+        cleaned = _sync_chatgpt_header_counts(cleaned)
+        with open(md_path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(cleaned)
+
+        print(
+            f"    Postprocess: kept={st['kept']}, removed_unknown={st['removed_unknown']}, "
+            f"removed_dup_cid={st['removed_dup_cid']}, removed_dup_clone={st['removed_dup_clone']}, "
+            f"moved_deleted={st['moved_deleted']}"
+        )
+        print(f"    Raw backup → {raw_path}")
+    else:
+        with open(md_path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(report_text)
 
     _sep()
     print(f"\n  ✓ DONE — {app}")
