@@ -185,7 +185,11 @@ def _normalize_sig_text(s: str) -> str:
     return s
 
 
-def _postprocess_chatgpt_report(md_text: str, partial_convs: list | None = None) -> tuple[str, dict]:
+def _postprocess_chatgpt_report(
+    md_text: str,
+    partial_convs: list | None = None,
+    metadata_convs: list | None = None,
+) -> tuple[str, dict]:
     """
     Clean chatgpt report:
       - remove unknown/low-quality blocks
@@ -207,6 +211,7 @@ def _postprocess_chatgpt_report(md_text: str, partial_convs: list | None = None)
         "moved_deleted": 0,
         "partial_conversations": 0,
         "partial_messages": 0,
+        "metadata_conversations": 0,
         "kept": 0,
     }
 
@@ -281,6 +286,23 @@ def _postprocess_chatgpt_report(md_text: str, partial_convs: list | None = None)
             out_lines.append("---\n")
             stats["partial_messages"] += len(msgs)
         stats["partial_conversations"] = len(partial_convs)
+
+    metadata_convs = metadata_convs or []
+    if metadata_convs:
+        out_lines.append("\n\n---\n\n")
+        out_lines.append("## Appendix: Recently Seen Conversations (Metadata Only)\n\n")
+        out_lines.append(
+            "Conversations detected from local sidebar/history metadata but without clean "
+            "recoverable message content yet.\n\n"
+        )
+        for mc in metadata_convs:
+            title = (mc.get("title") or "(untitled)").strip()
+            cid = (mc.get("conversation_id") or "").strip()
+            lu = ts_ist(float(mc.get("update_time") or 0))
+            out_lines.append(f"- **{title}**  \n")
+            out_lines.append(f"  - Conversation ID: `{cid}`  \n")
+            out_lines.append(f"  - Last updated (IST): {lu}\n")
+        stats["metadata_conversations"] = len(metadata_convs)
 
     if deleted:
         out_lines.append("\n\n---\n\n")
@@ -822,6 +844,116 @@ def _build_partial_conversations(low_conf_items: list, deleted_cids: set) -> tup
     return out, stats
 
 
+def _build_metadata_only_conversations(
+    ls_entries: list,
+    active_items: list,
+    partial_convs: list,
+    deleted_cids: set,
+) -> list:
+    active_cids = {(x.get("conversation_id") or "").strip() for x in (active_items or []) if (x.get("conversation_id") or "").strip()}
+    partial_cids = {(x.get("conversation_id") or "").strip() for x in (partial_convs or []) if (x.get("conversation_id") or "").strip()}
+    out_map: dict = {}
+    for e in (ls_entries or []):
+        cid = (e.get("conversation_id") or "").strip()
+        title = (e.get("title") or "").strip()
+        ts = float(e.get("update_time") or 0)
+        if not cid:
+            continue
+        if cid in deleted_cids or cid in active_cids or cid in partial_cids:
+            continue
+        if not title or title.lower() in {"new chat", "unknown (deleted/orphaned conversation)"}:
+            continue
+        if _looks_forensic_fragment(title):
+            continue
+        prev = out_map.get(cid)
+        if prev is None or ts > float(prev.get("update_time") or 0):
+            out_map[cid] = {
+                "conversation_id": cid,
+                "title": title,
+                "update_time": ts,
+            }
+    out = list(out_map.values())
+    out.sort(key=lambda x: float(x.get("update_time") or 0), reverse=True)
+    return out
+
+
+def _load_prior_reconstructed_by_cid() -> dict:
+    out: dict = {}
+    candidates = [
+        os.path.join(REPORTS, "CHATGPT_PREVIOUSLY_EXTRACTED.json"),
+        os.path.join(REPORTS, "RECOVERED_CHATGPT_GROUPED.json"),
+    ]
+    for path in candidates:
+        if not os.path.isfile(path):
+            continue
+        try:
+            raw = json.load(open(path, encoding="utf-8"))
+        except Exception:
+            continue
+        items = raw.get("conversations") if isinstance(raw, dict) and "conversations" in raw else raw.get("items") if isinstance(raw, dict) else raw
+        if not isinstance(items, list):
+            continue
+        for conv in items:
+            if not isinstance(conv, dict):
+                continue
+            cid = (conv.get("conversation_id") or "").strip()
+            if not cid:
+                continue
+            title = (conv.get("title") or "").strip()
+            lts = float(conv.get("last_seen_ts") or conv.get("latest_update") or conv.get("update_time") or 0)
+            msgs = []
+            for m in (conv.get("messages") or []):
+                role = (m.get("role") or "").strip().lower()
+                sn = (m.get("snippet") or "").strip()
+                mts = float(m.get("ts") or m.get("update_time") or lts)
+                if role not in {"user", "assistant", "tool", "system"}:
+                    continue
+                if not _is_balanced_partial_message(sn):
+                    continue
+                msgs.append({"role": role, "snippet": sn[:4000], "ts": mts})
+            if not msgs:
+                continue
+            cur = out.get(cid)
+            if cur is None or lts > float(cur.get("latest_ts") or 0):
+                msgs.sort(key=lambda x: float(x.get("ts") or 0))
+                out[cid] = {
+                    "title": title or "(untitled)",
+                    "latest_ts": lts,
+                    "messages": msgs[:3],
+                }
+    return out
+
+
+def _promote_metadata_with_prior_reconstruction(
+    metadata_convs: list,
+    partial_convs: list,
+) -> tuple[list, list, int]:
+    prior_map = _load_prior_reconstructed_by_cid()
+    existing_partial = {(c.get("conversation_id") or "").strip() for c in (partial_convs or [])}
+    promoted = []
+    kept_meta = []
+    promoted_count = 0
+    for m in (metadata_convs or []):
+        cid = (m.get("conversation_id") or "").strip()
+        if not cid or cid in existing_partial:
+            kept_meta.append(m)
+            continue
+        prior = prior_map.get(cid)
+        if not prior:
+            kept_meta.append(m)
+            continue
+        promoted.append({
+            "conversation_id": cid,
+            "title": (m.get("title") or prior.get("title") or "(untitled)").strip(),
+            "latest_ts": float(m.get("update_time") or prior.get("latest_ts") or 0),
+            "messages": list(prior.get("messages") or []),
+        })
+        promoted_count += 1
+    merged_partial = list(partial_convs or []) + promoted
+    merged_partial.sort(key=lambda c: float(c.get("latest_ts") or 0), reverse=True)
+    return merged_partial, kept_meta, promoted_count
+
+
 def run_chatgpt(paths: dict):
     """Full ChatGPT extraction pipeline → single report.
     Strict mode:
@@ -938,6 +1070,7 @@ def run_chatgpt(paths: dict):
 
     print("  [2/3] Applying accurate timestamps from Local Storage …")
     ls_dir = paths.get("ls_ldb", "")
+    ch = []
     if os.path.isdir(ls_dir):
         ch = _ls_conversation_history(ls_dir)
         applied = 0
@@ -1038,6 +1171,10 @@ def run_chatgpt(paths: dict):
     chatgpt_cids = sorted({x["conversation_id"] for x in out_report if x.get("conversation_id")})
     deleted_cids = _load_deleted_cids()
     partial_convs, partial_stats = _build_partial_conversations(low_conf, deleted_cids)
+    metadata_convs = _build_metadata_only_conversations(ch, out_report, partial_convs, deleted_cids)
+    partial_convs, metadata_convs, promoted_count = _promote_metadata_with_prior_reconstruction(
+        metadata_convs, partial_convs
+    )
     print(
         f"      Active validation: kept={val_stats['kept']} removed_missing_cid={val_stats['removed_missing_cid']} "
         f"removed_bad_role={val_stats['removed_bad_role']} removed_bad_time={val_stats['removed_bad_time']} "
@@ -1049,7 +1186,15 @@ def run_chatgpt(paths: dict):
         f"dropped_deleted={partial_stats['dropped_deleted_cid']} dropped_unreadable={partial_stats['dropped_unreadable']} "
         f"dropped_bad_role={partial_stats['dropped_bad_role']} dropped_duplicates={partial_stats['dropped_duplicates']}"
     )
-    _write_report("CHATGPT", chatgpt_cids, out_report, chatgpt_partial_convs=partial_convs)
+    print(f"      Prior reconstruction promotions: {promoted_count} conversations")
+    print(f"      Metadata-only appendix: conversations={len(metadata_convs)}")
+    _write_report(
+        "CHATGPT",
+        chatgpt_cids,
+        out_report,
+        chatgpt_partial_convs=partial_convs,
+        chatgpt_metadata_convs=metadata_convs,
+    )
     jpath, mpath, arc_count = _write_chatgpt_low_conf_archive(low_conf)
     print(f"      Low-confidence archive: {arc_count} items")
     print(f"      Archive JSON → {jpath}")
@@ -1446,7 +1591,14 @@ def run_claude(paths: dict):
 # REPORT WRITER (single-file output)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-def _write_report(app: str, clist, out_items: list, is_claude: bool = False, chatgpt_partial_convs: list | None = None):
+def _write_report(
+    app: str,
+    clist,
+    out_items: list,
+    is_claude: bool = False,
+    chatgpt_partial_convs: list | None = None,
+    chatgpt_metadata_convs: list | None = None,
+):
     now = ts_ist(datetime.utcnow().timestamp())
     total_convs = len(clist)
     with_content = sum(1 for x in out_items
@@ -1522,7 +1674,11 @@ def _write_report(app: str, clist, out_items: list, is_claude: bool = False, cha
         with open(raw_path, "w", encoding="utf-8", newline="\n") as f:
             f.write(report_text)
 
-        cleaned, st = _postprocess_chatgpt_report(report_text, partial_convs=(chatgpt_partial_convs or []))
+        cleaned, st = _postprocess_chatgpt_report(
+            report_text,
+            partial_convs=(chatgpt_partial_convs or []),
+            metadata_convs=(chatgpt_metadata_convs or []),
+        )
         cleaned = _sync_chatgpt_header_counts(cleaned)
         with open(md_path, "w", encoding="utf-8", newline="\n") as f:
             f.write(cleaned)
@@ -1531,7 +1687,7 @@ def _write_report(app: str, clist, out_items: list, is_claude: bool = False, cha
             f"    Postprocess: kept={st['kept']}, removed_unknown={st['removed_unknown']}, "
             f"removed_dup_cid={st['removed_dup_cid']}, removed_dup_clone={st['removed_dup_clone']}, "
             f"moved_deleted={st['moved_deleted']}, partial_conversations={st.get('partial_conversations',0)}, "
-            f"partial_messages={st.get('partial_messages',0)}"
+            f"partial_messages={st.get('partial_messages',0)}, metadata_conversations={st.get('metadata_conversations',0)}"
         )
         print(f"    Raw backup → {raw_path}")
     else:

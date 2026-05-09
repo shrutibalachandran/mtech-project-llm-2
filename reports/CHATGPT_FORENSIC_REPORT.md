@@ -1,6 +1,6 @@
 # CHATGPT Forensic Extraction Report
 
-**Generated:** 2026-05-09 07:46:51 IST  
+**Generated:** 2026-05-09 10:09:12 IST  
 **App:** CHATGPT  
 **Conversations:** 17  
 **Messages with content:** 104  
@@ -32809,6 +32809,41 @@ D\n\n---\n\nWould you like a **diagram** showing how an object is projected in o
 me and resources, I...ll explain the methods and share useful algorithms.","I'll avoid requesting the table, but offer to help further with it if needed."],"finished":true}],"source_analysis_msg_id":"d0db56bf-8faf-41cc-93f7-c9cc52281898"},"status":"finished_successfully","end_turn":false,"weight":1.
 
 ---
+
+
+---
+
+## Appendix: Recently Seen Conversations (Metadata Only)
+
+Conversations detected from local sidebar/history metadata but without clean recoverable message content yet.
+
+- **Oracles in Smart Contracts**  
+  - Conversation ID: `69f27a32-3a90-83e8-bd4e-a4f4c110e6e3`  
+  - Last updated (IST): 2026-04-30 03:35:57 IST
+- **PEAS description part picking**  
+  - Conversation ID: `6916300d-fc6c-8323-b5a2-ddf99ef311c5`  
+  - Last updated (IST): 2026-02-17 14:23:14 IST
+- **Grammar Correction Explanation**  
+  - Conversation ID: `6993a349-ffb0-8324-9670-324e06a9c643`  
+  - Last updated (IST): 2026-02-17 04:39:04 IST
+- **Advantages of Distributed Systems**  
+  - Conversation ID: `698aa211-da78-8320-9624-da443243d1aa`  
+  - Last updated (IST): 2026-02-10 08:59:28 IST
+- **Advantages of Distributed Systems**  
+  - Conversation ID: `698a58dd-c010-8324-a167-9caba679935a`  
+  - Last updated (IST): 2026-02-10 03:30:26 IST
+- **JEE vs GATE Toughness**  
+  - Conversation ID: `698819aa-5578-8322-a148-2c3e772d525f`  
+  - Last updated (IST): 2026-02-08 10:39:06 IST
+- **Artemis II Overview**  
+  - Conversation ID: `69839453-76cc-8322-b294-ca0f8a87afd7`  
+  - Last updated (IST): 2026-02-05 00:17:58 IST
+- **Curly Hair Cream vs Gel**  
+  - Conversation ID: `698223a0-2d18-8322-8f58-6799c6acf4a2`  
+  - Last updated (IST): 2026-02-03 22:05:22 IST
+- **QSpiders GD Topics**  
+  - Conversation ID: `69747fb6-1908-8322-8d49-787f160405c2`  
+  - Last updated (IST): 2026-01-24 15:46:28 IST
 
 
 ---
