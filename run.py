@@ -1733,6 +1733,70 @@ def run_claude(paths: dict):
     # Sort newest → oldest
     out_items.sort(key=lambda x: float(x.get("update_time", 0)), reverse=True)
 
+    # ── Cross-CID deduplication ───────────────────────────────────────────────
+    # Same conversation can arrive from multiple sources with different CIDs.
+    # Strategy: group by conversation_id first, then by normalized title.
+    # Within each title-group, prefer the CID that has real message content;
+    # among ties keep the one with the latest timestamp.
+
+    def _norm_title(t: str) -> str:
+        return re.sub(r'\s+', ' ', (t or "").strip().lower())
+
+    # Build per-CID summaries
+    by_cid_summary: dict = {}   # cid → {has_real, latest_ts, title}
+    for it in out_items:
+        cid  = it["conversation_id"]
+        is_real_msg = not it["payload"]["snippet"].startswith("[No content")
+        ts   = float(it.get("update_time") or 0)
+        title = it.get("title") or ""
+        if cid not in by_cid_summary:
+            by_cid_summary[cid] = {"has_real": is_real_msg, "latest_ts": ts, "title": title}
+        else:
+            s = by_cid_summary[cid]
+            s["has_real"] = s["has_real"] or is_real_msg
+            s["latest_ts"] = max(s["latest_ts"], ts)
+            if title and not s["title"]:
+                s["title"] = title
+
+    # Group CIDs by normalized title; pick the winner per group
+    title_to_cids: dict = {}
+    for cid, s in by_cid_summary.items():
+        nt = _norm_title(s["title"])
+        if not nt or nt in {"new chat", "untitled"}:
+            continue   # can't dedup anonymous chats safely
+        title_to_cids.setdefault(nt, []).append(cid)
+
+    dropped_cids: set = set()
+    for nt, cids in title_to_cids.items():
+        if len(cids) < 2:
+            continue
+        # Score: (has_real=1, latest_ts); highest score wins
+        ranked = sorted(
+            cids,
+            key=lambda c: (by_cid_summary[c]["has_real"], by_cid_summary[c]["latest_ts"]),
+            reverse=True,
+        )
+        for loser in ranked[1:]:
+            dropped_cids.add(loser)
+
+    if dropped_cids:
+        before = len(out_items)
+        out_items = [x for x in out_items if x["conversation_id"] not in dropped_cids]
+        print(f"      → Dropped {len(dropped_cids)} duplicate CIDs (same title, different UUID): "
+              f"{before} → {len(out_items)} items")
+
+    # ── Within each CID, drop duplicate snippets ─────────────────────────────
+    seen_snip: dict = {}   # cid → set of snippet hashes
+    deduped_final = []
+    for it in out_items:
+        cid  = it["conversation_id"]
+        snip = it["payload"]["snippet"]
+        h    = hashlib.md5(snip[:200].encode("utf-8", errors="ignore")).hexdigest()
+        if h not in seen_snip.setdefault(cid, set()):
+            seen_snip[cid].add(h)
+            deduped_final.append(it)
+    out_items = deduped_final
+
     cid_set = {x["conversation_id"] for x in out_items}
     total_real = sum(1 for x in out_items
                      if not x["payload"]["snippet"].startswith("[No content"))
