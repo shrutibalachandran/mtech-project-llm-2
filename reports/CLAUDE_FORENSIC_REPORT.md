@@ -1,6 +1,6 @@
 # CLAUDE Forensic Extraction Report
 
-**Generated:** 2026-05-09 10:59:46 IST  
+**Generated:** 2026-05-09 11:06:23 IST  
 **App:** CLAUDE  
 **Conversations:** 16  
 **Messages with content:** 10  
@@ -8,20 +8,12 @@
 ---
 
 
-## Nature poem
-
-**Last updated (IST):** 2026-03-19 10:24:48 IST  
-**Conversation ID:** `a1a60db8-321b-450c-ae69-b522c45326fd`
-
-*[No message content recovered — metadata only]*
----
-
 ## Extracting data from LLMs
 
 **Last updated (IST):** 2026-03-14 20:40:16 IST  
 **Conversation ID:** `0a5b59b4-fa0e-4e1b-9b42-27ab972b2c8c`
 
-**[2026-03-14 20:40:04 IST] HUMAN:**
+**[2026-03-14 20:40:04 IST] USER:**
 
 Hi i am thinking about LLM how to extract llm data
 
@@ -118,7 +110,7 @@ Which of these directions are you most interested in? Knowing your specific goal
 **Last updated (IST):** 2026-03-09 15:14:11 IST  
 **Conversation ID:** `4619c6f8-5931-4745-a171-5550bb00bb54`
 
-**[2026-03-09 15:14:02 IST] HUMAN:**
+**[2026-03-09 15:14:02 IST] USER:**
 
 what is generative ai
 
@@ -169,7 +161,7 @@ In short, generative AI doesn't just find answers — it *creates* them, making 
 **Last updated (IST):** 2026-03-09 15:11:25 IST  
 **Conversation ID:** `b880dca5-c2a6-417b-bb2c-9e55fb55cc9d`
 
-**[2026-03-09 15:11:25 IST] HUMAN:**
+**[2026-03-09 15:11:25 IST] USER:**
 
 what is the deadliest disease in the world
 
@@ -180,7 +172,7 @@ what is the deadliest disease in the world
 **Last updated (IST):** 2026-02-11 16:33:51 IST  
 **Conversation ID:** `29af3a99-64e0-4e9d-9bc2-4004eb2d19fa`
 
-**[2026-02-11 16:33:51 IST] HUMAN:**
+**[2026-02-11 16:33:51 IST] USER:**
 
 what is bat and ball
 
@@ -191,7 +183,7 @@ what is bat and ball
 **Last updated (IST):** 2026-02-10 14:26:02 IST  
 **Conversation ID:** `0caea636-8de9-4bef-b431-3e19d7be1200`
 
-**[2026-02-10 14:25:55 IST] HUMAN:**
+**[2026-02-10 14:25:55 IST] USER:**
 
 helloo
 
@@ -206,7 +198,7 @@ Hello! How's it going? What can I help you with today?
 **Last updated (IST):** 2026-02-09 11:21:55 IST  
 **Conversation ID:** `54fd3a6b-cf9f-4984-83b7-6d034dc6d0af`
 
-**[2026-02-09 11:21:45 IST] HUMAN:**
+**[2026-02-09 11:21:45 IST] USER:**
 
 what is cyber forensics?
 
@@ -224,74 +216,40 @@ Is there a particular aspect of cyber forensics you're curious about—like the 
 
 ---
 
-## React Tabs Component Design
 
-**Last updated (IST):** 2025-06-12 13:56:16 IST  
-**Conversation ID:** `c8155276-ef61-4b55-8312-2ff22062911f`
-
-*[No message content recovered — metadata only]*
 ---
 
-## Selected Items Counter UI Component
+## Appendix: Metadata Only / Deleted Conversations
 
-**Last updated (IST):** 2025-06-12 11:52:07 IST  
-**Conversation ID:** `fb645f7e-693c-41d7-a87e-b8b547c9fae4`
+Conversations detected from local artifacts but without recoverable message content. These may correspond to deleted or evicted conversations.
 
-*[No message content recovered — metadata only]*
----
-
-## React Component Code Review
-
-**Last updated (IST):** 2025-06-10 15:05:35 IST  
-**Conversation ID:** `2f83ac98-50d9-4bce-ad69-e5d34b67a17f`
-
-*[No message content recovered — metadata only]*
----
-
-## Combobox Scrolling Problem
-
-**Last updated (IST):** 2025-06-10 12:38:48 IST  
-**Conversation ID:** `e6a17efc-edb7-4fe5-bbf6-e55430b3ddab`
-
-*[No message content recovered — metadata only]*
----
-
-## Dropdown Input Value Selection
-
-**Last updated (IST):** 2025-06-10 09:16:54 IST  
-**Conversation ID:** `41b59899-7cdd-438c-bbd3-14515bbb7734`
-
-*[No message content recovered — metadata only]*
----
-
-## React Combobox Search Component Error
-
-**Last updated (IST):** 2025-06-09 21:20:34 IST  
-**Conversation ID:** `e9343e34-673b-49c6-b36f-e4999a380535`
-
-*[No message content recovered — metadata only]*
----
-
-## Figma Design Code Alignment
-
-**Last updated (IST):** 2025-06-09 14:38:17 IST  
-**Conversation ID:** `2a0bc953-e187-4c59-88d8-ad25dfd29f64`
-
-*[No message content recovered — metadata only]*
----
-
-## Design logging systems
-
-**Last updated (IST):** 2025-06-09 14:37:36 IST  
-**Conversation ID:** `c12a43df-afab-4844-bab1-909095268353`
-
-*[No message content recovered — metadata only]*
----
-
-## shruthib2001@gmail.com's Organization
-
-**Last updated (IST):** 2025-06-09 14:37:10 IST  
-**Conversation ID:** `a37e5d93-7370-4ca7-8620-ba9bc23b60d6`
-
-*[No message content recovered — metadata only]*
----
+- **Nature poem**  
+  - Conversation ID: `a1a60db8-321b-450c-ae69-b522c45326fd`  
+  - Last updated (IST): 2026-03-19 10:24:48 IST
+- **React Tabs Component Design**  
+  - Conversation ID: `c8155276-ef61-4b55-8312-2ff22062911f`  
+  - Last updated (IST): 2025-06-12 13:56:16 IST
+- **Selected Items Counter UI Component**  
+  - Conversation ID: `fb645f7e-693c-41d7-a87e-b8b547c9fae4`  
+  - Last updated (IST): 2025-06-12 11:52:07 IST
+- **React Component Code Review**  
+  - Conversation ID: `2f83ac98-50d9-4bce-ad69-e5d34b67a17f`  
+  - Last updated (IST): 2025-06-10 15:05:35 IST
+- **Combobox Scrolling Problem**  
+  - Conversation ID: `e6a17efc-edb7-4fe5-bbf6-e55430b3ddab`  
+  - Last updated (IST): 2025-06-10 12:38:48 IST
+- **Dropdown Input Value Selection**  
+  - Conversation ID: `41b59899-7cdd-438c-bbd3-14515bbb7734`  
+  - Last updated (IST): 2025-06-10 09:16:54 IST
+- **React Combobox Search Component Error**  
+  - Conversation ID: `e9343e34-673b-49c6-b36f-e4999a380535`  
+  - Last updated (IST): 2025-06-09 21:20:34 IST
+- **Figma Design Code Alignment**  
+  - Conversation ID: `2a0bc953-e187-4c59-88d8-ad25dfd29f64`  
+  - Last updated (IST): 2025-06-09 14:38:17 IST
+- **Design logging systems**  
+  - Conversation ID: `c12a43df-afab-4844-bab1-909095268353`  
+  - Last updated (IST): 2025-06-09 14:37:36 IST
+- **shruthib2001@gmail.com's Organization**  
+  - Conversation ID: `a37e5d93-7370-4ca7-8620-ba9bc23b60d6`  
+  - Last updated (IST): 2025-06-09 14:37:10 IST

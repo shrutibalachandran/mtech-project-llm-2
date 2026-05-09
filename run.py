@@ -1847,6 +1847,8 @@ def _write_report(
     def conv_ts(items_list):
         return max((float(x.get("update_time", 0)) for x in items_list), default=0)
 
+    claude_meta: list = []   # metadata-only Claude convs, rendered in appendix
+
     for cid, citems in sorted(by_conv.items(), key=lambda kv: conv_ts(kv[1]), reverse=True):
         msgs_sorted = sorted(
             citems, key=lambda x: float(x.get("update_time", 0)))
@@ -1871,23 +1873,39 @@ def _write_report(
             lines.append("---\n")
             continue
 
+        # Metadata-only Claude conversations go to a dedicated appendix
         title = citems[0].get("title", "(untitled)")
         ts = conv_ts(citems)
+        if not real_msgs:
+            claude_meta.append({"title": title, "cid": cid, "ts": ts})
+            continue
+
         lines.append(f"\n## {title}\n\n")
         lines.append(f"**Last updated (IST):** {ts_ist(ts)}  \n")
         lines.append(f"**Conversation ID:** `{cid}`\n\n")
-        has_real = bool(real_msgs)
-        if not has_real:
-            lines.append("*[No message content recovered — metadata only]*\n")
-        else:
-            for item in msgs_sorted:
-                snip = item["payload"]["snippet"]
-                if snip.startswith("[No content"):
-                    continue
-                role = (item["payload"].get("role") or "unknown").upper()
-                mt = ts_ist(float(item.get("update_time", 0)))
-                lines.append(f"**[{mt}] {role}:**\n\n{snip}\n\n")
+        for item in msgs_sorted:
+            snip = item["payload"]["snippet"]
+            if snip.startswith("[No content"):
+                continue
+            raw_role = (item["payload"].get("role") or "unknown").lower()
+            # Normalise Claude role names → USER / ASSISTANT
+            role = "USER" if raw_role in ("human", "user") else raw_role.upper()
+            mt = ts_ist(float(item.get("update_time", 0)))
+            lines.append(f"**[{mt}] {role}:**\n\n{snip}\n\n")
         lines.append("---\n")
+
+    # ── Claude metadata-only appendix ────────────────────────────────────
+    if claude_meta:
+        lines.append("\n\n---\n\n")
+        lines.append("## Appendix: Metadata Only / Deleted Conversations\n\n")
+        lines.append(
+            "Conversations detected from local artifacts but without recoverable "
+            "message content. These may correspond to deleted or evicted conversations.\n\n"
+        )
+        for mc in sorted(claude_meta, key=lambda x: x["ts"], reverse=True):
+            lines.append(f"- **{mc['title']}**  \n")
+            lines.append(f"  - Conversation ID: `{mc['cid']}`  \n")
+            lines.append(f"  - Last updated (IST): {ts_ist(mc['ts'])}\n")
 
     report_text = "".join(lines)
     if app == "CHATGPT":
